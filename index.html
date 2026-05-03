@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>syna gogte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zodiak:ital,wght@0,300;0,400;1,300;1,400&family=Geist+Mono:wght@300;400&family=Geist:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root {
+  --bg: #F7F6F2;
+  --fg: #141412;
+  --fg2: #6A6860;
+  --fg3: #B0AEA8;
+  --accent: #93c3d4;
+  --line: rgba(20,20,18,0.09);
+  --surface: #EFEDE8;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Geist', sans-serif;
+  font-weight: 300;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── GRAIN ── */
+body::after {
+  content:'';
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:999;
+  opacity:.35;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+}
+
+/* ── NAV ── */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bg);
+  border-bottom: 1px solid transparent;
+  transition: border-color .3s;
+}
+nav.scrolled { border-bottom-color: var(--line); }
+
+.nav-logo {
+  font-family: 'Geist Mono', monospace;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--fg2);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 0;
+  background: var(--surface);
+  border-radius: 100px;
+  padding: 4px;
+}
+
+.nav-tab {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  color: var(--fg3);
+  background: none;
+  border: none;
+  padding: 7px 16px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+  white-space: nowrap;
+}
+.nav-tab.active {
+  background: var(--bg);
+  color: var(--fg);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+.nav-tab:hover:not(.active) { color: var(--fg2); }
+
+/* ── PANELS ── */
+.panel { display: none; }
+.panel.active { display: block; }
+
+/* ── HOME ── */
+.home {
+  padding: 5rem 2.5rem 4rem;
+  min-height: calc(100vh - 73px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.home-top {}
+
+.home-name {
+  font-family: 'Zodiak', serif;
+  font-size: clamp(3.8rem, 9vw, 8.5rem);
+  font-weight: 300;
+  line-height: 0.93;
+  letter-spacing: -0.03em;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: up .9s .1s forwards;
+}
+
+.home-name em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.home-desc {
+  max-width: 400px;
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--fg2);
+  opacity: 0;
+  animation: up .9s .3s forwards;
+}
+
+.home-desc a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--fg3);
+  transition: text-decoration-color .2s;
+}
+.home-desc a:hover { text-decoration-color: var(--accent); }
+
+.home-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  opacity: 0;
+  animation: up .9s .5s forwards;
+}
+
+.home-facts {
+  display: flex;
+  gap: 3rem;
+}
+
+.fact {}
+
+.fact-val {
+  font-family: 'Zodiak', serif;
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+  line-height: 1;
+  margin-bottom: 3px;
+}
+
+.fact-label {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  color: var(--fg3);
+  letter-spacing: 0.06em;
+}
+
+.home-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.home-link {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  color: var(--fg3);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color .2s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.home-link:hover { color: var(--accent); }
+.home-link::after { content: '↗'; font-size: 9px; }
+
+/* ── WORK ── */
+.work { padding: 3.5rem 2.5rem 5rem; }
+
+.section-intro {
+  font-size: 13px;
+  color: var(--fg3);
+  font-family: 'Geist Mono', monospace;
+  margin-bottom: 3rem;
+  letter-spacing: 0.02em;
+}
+
+.job {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--line);
+}
+.job:last-child { border-bottom: 1px solid var(--line); }
+
+.job-left {}
+
+.job-co {
+  font-family: 'Zodiak', serif;
+  font-size: 1.05rem;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  margin-bottom: 3px;
+}
+
+.job-when {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  color: var(--fg3);
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+}
+
+.job-right {}
+
+.job-title {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--fg2);
+  margin-bottom: 0.8rem;
+}
+
+.job-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.job-bullets li {
+  font-size: 13px;
+  color: var(--fg2);
+  line-height: 1.65;
+  padding-left: 16px;
+  position: relative;
+}
+.job-bullets li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--fg3);
+  font-size: 11px;
+}
+
+.job-tag {
+  display: inline-block;
+  margin-top: 10px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  background: rgba(200,91,42,0.1);
+  color: var(--accent);
+  letter-spacing: 0.06em;
+}
+
+/* ── PROJECTS ── */
+.projects { padding: 3.5rem 2.5rem 5rem; }
+
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.proj {
+  background: var(--bg);
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: background .2s;
+  position: relative;
+}
+.proj:hover { background: var(--surface); }
+
+.proj-kind {
+  font-family: 'Geist Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--fg3);
+  text-transform: uppercase;
+}
+
+.proj-name {
+  font-family: 'Zodiak', serif;
+  font-size: 1.05rem;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  line-height: 1.25;
+}
+
+.proj-desc {
+  font-size: 12.5px;
+  color: var(--fg2);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.proj-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.chip {
+  font-family: 'Geist Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  padding: 3px 7px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  color: var(--fg3);
+}
+
+.proj-link-row {
+  margin-top: 6px;
+}
+.proj-link-row a {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transition: opacity .2s;
+}
+.proj:hover .proj-link-row a { opacity: 1; }
+
+/* ── THE REST ── */
+.fun { padding: 3.5rem 2.5rem 5rem; }
+
+.fun-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 800px;
+}
+
+.fun-block { margin-bottom: 2.5rem; }
+
+.fun-label {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--fg3);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.fun-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.fun-text {
+  font-size: 13.5px;
+  color: var(--fg2);
+  line-height: 1.8;
+}
+
+.fun-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fun-list li {
+  font-size: 13px;
+  color: var(--fg2);
+  display: grid;
+  grid-template-columns: 1.2rem 1fr;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.fun-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.fun-pill {
+  font-size: 12px;
+  padding: 5px 13px;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  color: var(--fg2);
+  background: var(--surface);
+  cursor: default;
+  transition: all .2s;
+}
+.fun-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── CONTACT ── */
+.contact {
+  padding: 5rem 2.5rem;
+  min-height: calc(100vh - 73px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-big {
+  font-family: 'Zodiak', serif;
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.5rem;
+  max-width: 700px;
+}
+
+.contact-big em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.contact-note {
+  font-size: 14px;
+  color: var(--fg2);
+  margin-bottom: 3rem;
+  line-height: 1.8;
+  max-width: 380px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 8px;
+  width: fit-content;
+  margin-bottom: 4rem;
+}
+
+.clink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--fg2);
+  font-size: 12.5px;
+  background: var(--surface);
+  transition: border-color .2s, color .2s, transform .2s;
+  white-space: nowrap;
+}
+.clink:hover {
+  border-color: var(--accent);
+  color: var(--fg);
+  transform: translateY(-2px);
+}
+
+.clink-label {
+  font-family: 'Geist Mono', monospace;
+  font-size: 9px;
+  color: var(--fg3);
+  display: block;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1px;
+}
+
+.contact-footer-note {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  color: var(--fg3);
+  letter-spacing: 0.02em;
+  border-top: 1px solid var(--line);
+  padding-top: 2rem;
+  max-width: 420px;
+}
+
+/* ── SHARED FOOTER ── */
+footer {
+  padding: 1.5rem 2.5rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer p {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  color: var(--fg3);
+  letter-spacing: 0.04em;
+}
+
+/* ── ANIMATION ── */
+@keyframes up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.panel.active > * {
+  animation: up .6s ease both;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 680px) {
+  nav { padding: 1.2rem 1.5rem; flex-wrap: wrap; gap: 1rem; }
+  .nav-tabs { overflow-x: auto; border-radius: 8px; }
+  .home, .work, .projects, .fun, .contact { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .home { padding-top: 2.5rem; }
+  .home-facts { gap: 1.5rem; }
+  .home-bottom { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .job { grid-template-columns: 1fr; gap: 0.4rem; }
+  .proj-grid { grid-template-columns: 1fr; }
+  .fun-layout { grid-template-columns: 1fr; gap: 0; }
+  .contact-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#" class="nav-logo" onclick="switchTab('home');return false;">sg</a>
+  <div class="nav-tabs">
+    <button class="nav-tab active" data-tab="home">home</button>
+    <button class="nav-tab" data-tab="work">work</button>
+    <button class="nav-tab" data-tab="projects">projects</button>
+    <button class="nav-tab" data-tab="fun">the fun stuff</button>
+    <button class="nav-tab" data-tab="contact">contact</button>
+  </div>
+</nav>
+
+<!-- ═══ HOME ═══ -->
+<div class="panel active" id="panel-home">
+  <div class="home">
+    <div class="home-top">
+      <h1 class="home-name">syna<br><em>gogte.</em></h1>
+      <p class="home-desc">
+        senior @ usc (cecs).<br>
+        making hardware do cool, fast ai things.<br>
+        twice at nvidia. <br>
+        cecs outstanding academic achievement award. <br>
+        <br>
+        let's chat: <a href="mailto:sgogte@usc.edu">sgogte@usc.edu</a>
+      </p>
+    </div>
+    <div class="home-bottom">
+      <div class="home-facts">
+        <div class="fact">
+          <div class="fact-val">#1</div>
+          <div class="fact-label">in CECS</div>
+        </div>
+        <div class="fact">
+          <div class="fact-val">2×</div>
+          <div class="fact-label">nvidia</div>
+        </div>
+        <div class="fact">
+          <div class="fact-val">210+</div>
+          <div class="fact-label">students taught</div>
+        </div>
+        <div class="fact">
+          <div class="fact-val">500+</div>
+          <div class="fact-label">hacksc attendees</div>
+        </div>
+      </div>
+      <div class="home-links">
+        <a href="https://github.com/synagogte" target="_blank" class="home-link">github</a>
+        <a href="https://www.linkedin.com/in/syna-gogte/" target="_blank" class="home-link">linkedin</a>
+        <a href="https://open.spotify.com/user/jamhklyqd04l2jdpq8fckkib6" target="_blank" class="home-link">spotify</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ WORK ═══ -->
+<div class="panel" id="panel-work">
+  <div class="work">
+    <p class="section-intro">// where i've been</p>
+
+    <div class="job">
+      <div class="job-left">
+        <div class="job-co">nvidia</div>
+        <div class="job-when">santa clara<br>may–aug 2025</div>
+        <span class="job-tag">most recent</span>
+      </div>
+      <div class="job-right">
+        <div class="job-title">systems software engineering intern</div>
+        <ul class="job-bullets">
+          <li>profile-guided optimizations → 20% faster execution, millions in annual savings</li>
+          <li>built a runtime tracing tool that cut bug resolution time in half</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-left">
+        <div class="job-co">nvidia</div>
+        <div class="job-when">santa clara<br>may–aug 2024</div>
+      </div>
+      <div class="job-right">
+        <div class="job-title">system software engineering intern</div>
+        <ul class="job-bullets">
+          <li>integrated bullseye coverage into gpu system processes (c), surfaced 20% total code coverage</li>
+          <li>implemented gsp-rm coverage collection — 10% fewer code bugs</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-left">
+        <div class="job-co">usc viterbi</div>
+        <div class="job-when">los angeles<br>aug 2023–now</div>
+      </div>
+      <div class="job-right">
+        <div class="job-title">course producer — ee109 / ee250</div>
+        <ul class="job-bullets">
+          <li>teaching embedded systems + distributed systems to 210+ students</li>
+          <li>weekly labs, office hours, grading — basically a ta but cooler</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-left">
+        <div class="job-co">usc anrg</div>
+        <div class="job-when">los angeles<br>aug 2024–now</div>
+      </div>
+      <div class="job-right">
+        <div class="job-title">undergraduate researcher</div>
+        <ul class="job-bullets">
+          <li>scheduling algorithms for conditional task graphs — targeting 20% makespan reduction</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-left">
+        <div class="job-co">bmc software</div>
+        <div class="job-when">santa clara<br>may–nov 2023</div>
+      </div>
+      <div class="job-right">
+        <div class="job-title">r&d intern</div>
+        <ul class="job-bullets">
+          <li>built an internal chatbot with flask api + python</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-left">
+        <div class="job-co">hacksc</div>
+        <div class="job-when">los angeles<br>2023–now</div>
+      </div>
+      <div class="job-right">
+        <div class="job-title">community lead</div>
+        <ul class="job-bullets">
+          <li>organized workshops, speakers, events for usc's annual hackathon — 500+ people</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ PROJECTS ═══ -->
+<div class="panel" id="panel-projects">
+  <div class="projects">
+    <p class="section-intro">// things i've built</p>
+    <div class="proj-grid">
+
+      <div class="proj">
+        <div class="proj-kind">llm · ml</div>
+        <div class="proj-name">fine-tuning llama 3.2</div>
+        <div class="proj-desc">custom pytorch pipeline with lora + mixed precision. trainable params down to 0.113% of the model. 35% less memory, 2× faster — single 16gb gpu.</div>
+        <div class="proj-stack">
+          <span class="chip">pytorch</span><span class="chip">lora</span><span class="chip">llama</span><span class="chip">cuda</span>
+        </div>
+        <div class="proj-link-row"><a href="https://github.com/synagogte/ml-systems-final-project-synagogte" target="_blank">github ↗</a></div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-kind">hardware · fpga</div>
+        <div class="proj-name">connect 4 on fpga</div>
+        <div class="proj-desc">rtl state machine in verilog. full connect 4 on real hardware, no soft cpu cheating.</div>
+        <div class="proj-stack">
+          <span class="chip">verilog</span><span class="chip">rtl</span><span class="chip">fpga</span>
+        </div>
+        <div class="proj-link-row"><a href="https://github.com/synagogte/fpga-connect4" target="_blank">github ↗</a></div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-kind">ml · hardware</div>
+        <div class="proj-name">cnn on fpga</div>
+        <div class="proj-desc">trained in python, forward pass deployed in systemverilog for variable inputs. nios ii + c for backprop. ~80% accuracy on actual silicon.</div>
+        <div class="proj-stack">
+          <span class="chip">systemverilog</span><span class="chip">nios ii</span><span class="chip">c</span><span class="chip">modelsim</span>
+        </div>
+        <div class="proj-link-row"><a href="https://github.com/synagogte/cnn_fpga" target="_blank">github ↗</a></div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-kind">iot · audio</div>
+        <div class="proj-name">spotify song recommender</div>
+        <div class="proj-desc">raspberry pi + grove sensors read ambient noise → picks from your spotify top tracks. 95% accuracy. yes, this was a class project.</div>
+        <div class="proj-stack">
+          <span class="chip">python</span><span class="chip">flask</span><span class="chip">raspberry pi</span><span class="chip">spotify api</span>
+        </div>
+        <div class="proj-link-row"><a href="https://github.com/synagogte/spotify_tracker" target="_blank">github ↗</a></div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-kind">full stack</div>
+        <div class="proj-name">restaurant tracker</div>
+        <div class="proj-desc">yelp api + sql backend + clean frontend. search restaurants, save favorites, book tables.</div>
+        <div class="proj-stack">
+          <span class="chip">java</span><span class="chip">sql</span><span class="chip">yelp api</span><span class="chip">js</span>
+        </div>
+        <div class="proj-link-row"><a href="https://github.com/synagogte/restauranttracker" target="_blank">github ↗</a></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══ THE REST ═══ -->
+<div class="panel" id="panel-fun">
+  <div class="fun">
+    <p class="section-intro">// the stuff that makes me not a robot</p>
+    <div class="fun-layout">
+      <div>
+        <div class="fun-block">
+          <div class="fun-label">music</div>
+          <div class="fun-text">
+            hyperpop when i'm energized, ambient when i'm in the zone, bollywood on road trips — non-negotiable. i have opinions about playlists and the shuffle algorithm is personally offensive to me.<br><br>
+            <a href="https://open.spotify.com/user/jamhklyqd04l2jdpq8fckkib6" target="_blank" style="color:var(--accent);font-size:12px;text-underline-offset:3px;">→ see what i'm listening to</a>
+          </div>
+        </div>
+
+        <div class="fun-block">
+          <div class="fun-label">currently into</div>
+          <ul class="fun-list">
+            <li><span>☕</span> hunting the best matcha latte in LA</li>
+            <li><span>📖</span> reading anything about how things get built</li>
+            <li><span>🏔️</span> griffith trails, runyon, eaton canyon</li>
+            <li><span>📌</span> maintaining 47 pinterest boards</li>
+            <li><span>🏋️</span> gym. consistently, somehow.</li>
+          </ul>
+        </div>
+
+        <div class="fun-block">
+          <div class="fun-label">genuinely fascinating to me</div>
+          <ul class="fun-list">
+            <!-- <li><span>→</span> spotify's dj feature (the engineering is insane)</li> -->
+            <li><span>→</span> how llm inference gets optimized</li>
+            <li><span>→</span> gpu memory hierarchies</li>
+            <li><span>→</span> why some products feel inevitable in retrospect</li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="fun-block">
+          <div class="fun-label">have been to</div>
+          <div class="fun-pill-row">
+            <span class="fun-pill">malaysia 🇲🇾</span>
+            <span class="fun-pill">india 🇮🇳</span>
+            <span class="fun-pill">road trips</span>
+            <span class="fun-pill">anywhere with good food</span>
+            <span class="fun-pill">night markets</span>
+            <span class="fun-pill">bookshops abroad</span>
+          </div>
+        </div>
+
+        <div class="fun-block">
+          <div class="fun-label">other facts</div>
+          <ul class="fun-list">
+            <li><span>→</span> community lead for hacksc — helped bring 500+ people together</li>
+            <li><span>→</span> teaching embedded systems since sophomore year</li>
+            <!-- <li><span>→</span> first website said "hi!!!" — this is the glow-up</li> -->
+            <li><span>→</span> will always recommend a café over a library</li>
+            <li><span>→</span> instagram is <a href="https://instagram.com/synasgogte" target="_blank" style="color:var(--accent);text-underline-offset:3px;">@synasgogte</a></li>
+          </ul>
+        </div>
+
+        <div class="fun-block">
+          <div class="fun-label">skills (actually)</div>
+          <div class="fun-pill-row">
+            <span class="fun-pill">python</span>
+            <span class="fun-pill">c / c++</span>
+            <span class="fun-pill">verilog</span>
+            <span class="fun-pill">pytorch</span>
+            <span class="fun-pill">java</span>
+            <span class="fun-pill">react</span>
+            <span class="fun-pill">linux</span>
+            <span class="fun-pill">cuda</span>
+            <span class="fun-pill">git</span>
+            <span class="fun-pill">figma</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CONTACT ═══ -->
+<div class="panel" id="panel-contact">
+  <div class="contact">
+    <h2 class="contact-big">let's build<br>something <em>interesting.</em></h2>
+    <p class="contact-note">for work stuff, collabs, research chats, or literally just to say hi. i'm a real person who checks email.</p>
+    <div class="contact-grid">
+      <a href="mailto:sgogte@usc.edu" class="clink">
+        <div><span class="clink-label">email</span>sgogte@usc.edu</div>
+      </a>
+      <a href="https://www.linkedin.com/in/syna-gogte/" target="_blank" class="clink">
+        <div><span class="clink-label">linkedin</span>syna-gogte</div>
+      </a>
+      <a href="https://github.com/synagogte" target="_blank" class="clink">
+        <div><span class="clink-label">github</span>synagogte</div>
+      </a>
+      <a href="https://open.spotify.com/user/jamhklyqd04l2jdpq8fckkib6" target="_blank" class="clink">
+        <div><span class="clink-label">spotify</span>what i'm playing</div>
+      </a>
+      <a href="https://www.instagram.com/synasgogte/" target="_blank" class="clink">
+        <div><span class="clink-label">instagram</span>@synasgogte</div>
+      </a>
+      <a href="https://www.pinterest.com/synagogte/" target="_blank" class="clink">
+        <div><span class="clink-label">pinterest</span>synagogte</div>
+      </a>
+    </div>
+    <p class="contact-footer-note">based in los angeles + bay area. graduating may 2026. open to what's next.</p>
+  </div>
+</div>
+
+<footer>
+  <p>syna gogte · usc cecs · 2026</p>
+  <p>made with too many open tabs</p>
+</footer>
+
+<script>
+function switchTab(name) {
+  document.querySelectorAll('.nav-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.tab === name);
+  });
+  document.querySelectorAll('.panel').forEach(p => {
+    const on = p.id === 'panel-' + name;
+    p.classList.toggle('active', on);
+    if (on) {
+      p.style.animation = 'none';
+      p.offsetHeight;
+      p.style.animation = '';
+    }
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+document.querySelectorAll('.nav-tab').forEach(btn => {
+  btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+});
+
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 10);
+});
+</script>
+</body>
+</html>
