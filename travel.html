@@ -429,11 +429,6 @@ nav.scrolled { border-bottom-color: var(--line); }
   color: var(--accent);
 }
 
-.accent-link {
-  color: var(--accent);
-  text-underline-offset: 3px;
-}
-
 /* ── CONTACT ── */
 .contact {
   padding: 5rem 2.5rem;
@@ -557,13 +552,16 @@ footer p {
 <body>
 
 <nav id="nav">
-  <a href="#" class="nav-logo" onclick="switchTab('home');return false;">sg</a>
-  <div class="nav-tabs">
+  <a href="index.html" class="nav-logo";return false;">sg</a>
+  <!-- <div class="nav-tabs">
     <button class="nav-tab active" data-tab="home">home</button>
     <button class="nav-tab" data-tab="work">work</button>
     <button class="nav-tab" data-tab="projects">projects</button>
     <button class="nav-tab" data-tab="fun">the fun stuff</button>
     <button class="nav-tab" data-tab="contact">contact</button>
+  </div> -->
+  <div class="nav-tabs">
+    <button class="nav-tab active"><a href="index.html" style=text-decoration:none;color:inherit;>home</a></button>
   </div>
 </nav>
 
@@ -571,21 +569,21 @@ footer p {
 <div class="panel active" id="panel-home">
   <div class="home">
     <div class="home-top">
-      <h1 class="home-name">syna<br><em>gogte</em></h1>
+      <h1 class="home-name">my<br><em>travels</em></h1>
       <p class="home-desc">
-        senior @ usc (cecs).<br>
+        wip
+        <!-- senior @ usc (cecs).<br>
         making hardware do cool, fast ai things.<br>
         twice at nvidia. <br>
         research with acme & anrg labs @ usc. <br>
         cecs outstanding academic achievement award. <br>
-        minion lover. <br>
-        <br>
-        let's chat: <a href="mailto:sgogte@usc.edu">sgogte@usc.edu</a>
+        <br> -->
+        <!-- let's chat: <a href="mailto:sgogte@usc.edu">sgogte@usc.edu</a> -->
       </p>
     </div>
     <div class="home-bottom">
       <div class="home-facts">
-        <div class="fact">
+        <!-- <div class="fact">
           <div class="fact-val">#1</div>
           <div class="fact-label">in CECS</div>
         </div>
@@ -596,7 +594,7 @@ footer p {
         <div class="fact">
           <div class="fact-val">210+</div>
           <div class="fact-label">students taught</div>
-        </div>
+        </div> --> 
         <!-- <div class="fact">
           <div class="fact-val">500+</div>
           <div class="fact-label">hacksc attendees</div>
@@ -610,292 +608,6 @@ footer p {
         <a href="syna_gogte_resume_hw.pdf" target="_blank" class="home-link">resume (hw)</a>
       </div>
     </div>
-  </div>
-</div>
-
-<!-- ═══ WORK ═══ -->
-<div class="panel" id="panel-work">
-  <div class="work">
-    <p class="section-intro">// where i've been</p>
-
-    <div class="job">
-      <div class="job-left">
-        <div class="job-co">nvidia</div>
-        <div class="job-when">santa clara<br>may–aug 2025</div>
-        <span class="job-tag">most recent</span>
-      </div>
-      <div class="job-right">
-        <div class="job-title">systems software engineering intern</div>
-        <ul class="job-bullets">
-          <li>profile-guided optimizations → 20% faster execution, millions in annual savings</li>
-          <li>built a runtime tracing tool that cut bug resolution time in half</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="job">
-      <div class="job-left">
-        <div class="job-co">nvidia</div>
-        <div class="job-when">santa clara<br>may–aug 2024</div>
-      </div>
-      <div class="job-right">
-        <div class="job-title">systems software engineering intern</div>
-        <ul class="job-bullets">
-          <li>integrated bullseye coverage into gpu system processes (c), surfaced 20% total code coverage</li>
-          <li>implemented gsp-rm coverage collection — 10% fewer code bugs</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="job">
-      <div class="job-left">
-        <div class="job-co">usc viterbi</div>
-        <div class="job-when">los angeles<br>aug 2023–now</div>
-      </div>
-      <div class="job-right">
-        <div class="job-title">course producer — ee109 / ee250 / ee345/ cs353 (half of the viterbi classes tbh) </div>
-        <ul class="job-bullets">
-          <li>teaching embedded systems + distributed systems/ networking + digital circuitsto 210+ students</li>
-          <li>weekly labs, office hours, grading — basically a ta but cooler + more fun + able to meet more peers</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="job">
-      <div class="job-left">
-        <div class="job-co">usc anrg</div>
-        <div class="job-when">los angeles<br>aug 2024–now</div>
-      </div>
-      <div class="job-right">
-        <div class="job-title">undergraduate researcher</div>
-        <ul class="job-bullets">
-          <li>scheduling algorithms for conditional task graphs — targeting 20% makespan reduction</li>
-        </ul>
-      </div>
-    </div>
-    <div class="job">
-      <div class="job-left">
-        <div class="job-co">usc acme</div>
-        <div class="job-when">los angeles<br>aug 2023–may 2024</div>
-      </div>
-      <div class="job-right">
-        <div class="job-title">undergraduate researcher</div>
-        <ul class="job-bullets">
-          <li>fine-tuned rnns for human activity recognition — improved accuracy of the system by 50%</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="job">
-      <div class="job-left">
-        <div class="job-co">bmc software</div>
-        <div class="job-when">santa clara<br>may–nov 2023</div>
-      </div>
-      <div class="job-right">
-        <div class="job-title">r&d intern</div>
-        <ul class="job-bullets">
-          <li>built an internal chatbot with flask api + python</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="job">
-      <div class="job-left">
-        <div class="job-co">hacksc</div>
-        <div class="job-when">los angeles<br>2023–now</div>
-      </div>
-      <div class="job-right">
-        <div class="job-title">community lead</div>
-        <ul class="job-bullets">
-          <li>organized workshops, speakers, events for usc's annual hackathon — 500+ people</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- ═══ PROJECTS ═══ -->
-<div class="panel" id="panel-projects">
-  <div class="projects">
-    <p class="section-intro">// things i've built</p>
-    <div class="proj-grid">
-
-      <div class="proj">
-        <div class="proj-kind">llm · ml</div>
-        <div class="proj-name">fine-tuning llama 3.2</div>
-        <div class="proj-desc">custom pytorch pipeline with lora + mixed precision. trainable params down to 0.113% of the model. 35% less memory, 2× faster — single 16gb gpu.</div>
-        <div class="proj-stack">
-          <span class="chip">pytorch</span><span class="chip">lora</span><span class="chip">llama</span><span class="chip">cuda</span>
-        </div>
-        <div class="proj-link-row"><a href="https://github.com/synagogte/ml-systems-final-project-synagogte" target="_blank">github ↗</a></div>
-      </div>
-
-      <div class="proj">
-        <div class="proj-kind">ml · hardware</div>
-        <div class="proj-name">squeezenet on fpga</div>
-        <div class="proj-desc">full squeezenet architecture for inference on an fpga board — quantization, all modules. trained in python to get weights, then deployed directly on hardware.</div>
-        <div class="proj-stack">
-          <span class="chip">python</span><span class="chip">systemverilog</span><span class="chip">quartus</span><span class="chip">fpga</span>
-        </div>
-        <div class="proj-link-row"><a href="https://github.com/synagogte/squeezenet_fpga" target="_blank">github ↗</a></div>
-      </div>
-
-      <div class="proj">
-        <div class="proj-kind">hardware · fpga</div>
-        <div class="proj-name">connect 4 on fpga</div>
-        <div class="proj-desc">rtl state machine in verilog. full connect 4 on real hardware, no soft cpu cheating.</div>
-        <div class="proj-stack">
-          <span class="chip">verilog</span><span class="chip">rtl</span><span class="chip">fpga</span>
-        </div>
-        <div class="proj-link-row"><a href="https://github.com/synagogte/fpga-connect4" target="_blank">github ↗</a></div>
-      </div>
-
-      <div class="proj">
-        <div class="proj-kind">ml · hardware</div>
-        <div class="proj-name">cnn on fpga</div>
-        <div class="proj-desc">trained in python, forward pass deployed in systemverilog for variable inputs. nios ii + c for backprop. ~80% accuracy on actual silicon.</div>
-        <div class="proj-stack">
-          <span class="chip">systemverilog</span><span class="chip">nios ii</span><span class="chip">c</span><span class="chip">modelsim</span>
-        </div>
-        <div class="proj-link-row"><a href="https://github.com/synagogte/cnn_fpga" target="_blank">github ↗</a></div>
-      </div>
-
-      <div class="proj">
-        <div class="proj-kind">iot · audio</div>
-        <div class="proj-name">spotify song recommender</div>
-        <div class="proj-desc">raspberry pi + grove sensors read ambient noise → picks from your spotify top tracks. 95% accuracy. yes, this was a class project.</div>
-        <div class="proj-stack">
-          <span class="chip">python</span><span class="chip">flask</span><span class="chip">raspberry pi</span><span class="chip">spotify api</span>
-        </div>
-        <div class="proj-link-row"><a href="https://github.com/synagogte/spotify_tracker" target="_blank">github ↗</a></div>
-      </div>
-
-      <div class="proj">
-        <div class="proj-kind">full stack</div>
-        <div class="proj-name">restaurant tracker</div>
-        <div class="proj-desc">yelp api + sql backend + clean frontend. search restaurants, save favorites, book tables.</div>
-        <div class="proj-stack">
-          <span class="chip">java</span><span class="chip">sql</span><span class="chip">yelp api</span><span class="chip">js</span>
-        </div>
-        <div class="proj-link-row"><a href="https://github.com/synagogte/restauranttracker" target="_blank">github ↗</a></div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- ═══ THE REST ═══ -->
-<div class="panel" id="panel-fun">
-  <div class="fun">
-    <p class="section-intro">// the stuff that makes me not a robot</p>
-    <div class="fun-layout">
-      <div>
-        <div class="fun-block">
-          <div class="fun-label">music</div>
-          <div class="fun-text">
-            hyperpop when i'm energized, ambient when i'm in the zone, 2010 bangerz on road trips — non-negotiable. i have opinions about playlists and the shuffle algorithm is personally offensive to me.<br><br>
-            <a href="https://open.spotify.com/user/jamhklyqd04l2jdpq8fckkib6" target="_blank" style="color:var(--accent);text-underline-offset:3px;">→ see what i'm listening to</a>
-          </div>
-        </div>
-
-        <div class="fun-block">
-          <div class="fun-label">currently into</div>
-          <ul class="fun-list">
-            <li><span>☕</span> hunting the best matcha latte in LA, follow me on beli @sgogte</li>
-            <li><span>📖</span> reading anything about how things get built</li>
-            <li><span>🏔️</span> griffith trails, runyon, eaton canyon</li>
-            <li><span>📌</span> maintaining 47 pinterest boards</li>
-            <li><span>🏋️</span> gym. a body building comp perhaps...</li>
-            <li><span>🍌</span> the minions!! and the new movie coming out this july</li>
-            <li><span>✈️</span> most importantly: senior year maxxing - reach out for my flighty!! (20 flights this year)</li>
-            
-          </ul>
-        </div>
-
-        <div class="fun-block">
-          <div class="fun-label">genuinely fascinating to me</div>
-          <ul class="fun-list">
-            <!-- <li><span>→</span> spotify's dj feature (the engineering is insane)</li> -->
-            <li><span>→</span> how llm inference gets optimized</li>
-            <li><span>→</span> gpu memory hierarchies</li>
-            <li><span>→</span> why some products feel inevitable in retrospect</li>
-            <li><span>→</span> <span>click <a href="thoughts.html" class="accent-link"> here</a> for some of my thoughts</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <div>
-        <div class="fun-block">
-          <div class="fun-label">have been to</div>
-          <div class="fun-pill-row">
-            <span class="fun-pill">malaysia 🇲🇾</span>
-            <span class="fun-pill">india 🇮🇳</span>
-            <span class="fun-pill">road trips</span>
-            <span class="fun-pill">anywhere with good food</span>
-            <span class="fun-pill">night markets</span>
-            <span class="fun-pill">bookshops abroad</span>
-            <span class="fun-pill"><a href="travel.html" style=text-decoration:none;color:inherit;> click for more</a></span>
-          </div>
-        </div>
-
-        <div class="fun-block">
-          <div class="fun-label">other facts</div>
-          <ul class="fun-list">
-            <li><span>→</span> community lead for hacksc — helped bring 500+ people together</li>
-            <li><span>→</span> teaching embedded systems since sophomore year</li>
-            <!-- <li><span>→</span> first website said "hi!!!" — this is the glow-up</li> -->
-            <li><span>→</span> will always recommend a café over a library</li>
-            <li><span>→</span> <span>instagram is <a href="https://instagram.com/synasgogte" target="_blank" class="accent-link">@synasgogte</a></span></li>
-          </ul>
-        </div>
-
-        <div class="fun-block">
-          <div class="fun-label">skills (actually)</div>
-          <div class="fun-pill-row">
-            <span class="fun-pill">python</span>
-            <span class="fun-pill">c / c++</span>
-            <span class="fun-pill">verilog</span>
-            <span class="fun-pill">pytorch</span>
-            <span class="fun-pill">java</span>
-            <span class="fun-pill">react</span>
-            <span class="fun-pill">linux</span>
-            <span class="fun-pill">cuda</span>
-            <span class="fun-pill">git</span>
-            <span class="fun-pill">figma</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══ CONTACT ═══ -->
-<div class="panel" id="panel-contact">
-  <div class="contact">
-    <h2 class="contact-big">let's build<br>something <em>interesting.</em></h2>
-    <p class="contact-note">for work stuff, collabs, research chats, or literally just to say hi. i'm a real person who checks email.</p>
-    <div class="contact-grid">
-      <a href="mailto:sgogte@usc.edu" class="clink">
-        <div><span class="clink-label">email</span>sgogte@usc.edu</div>
-      </a>
-      <a href="https://www.linkedin.com/in/syna-gogte/" target="_blank" class="clink">
-        <div><span class="clink-label">linkedin</span>syna-gogte</div>
-      </a>
-      <a href="https://github.com/synagogte" target="_blank" class="clink">
-        <div><span class="clink-label">github</span>synagogte</div>
-      </a>
-      <a href="https://open.spotify.com/user/jamhklyqd04l2jdpq8fckkib6" target="_blank" class="clink">
-        <div><span class="clink-label">spotify</span>what i'm playing</div>
-      </a>
-      <a href="https://www.instagram.com/synasgogte/" target="_blank" class="clink">
-        <div><span class="clink-label">instagram</span>@synasgogte</div>
-      </a>
-      <a href="https://www.pinterest.com/synagogte/" target="_blank" class="clink">
-        <div><span class="clink-label">pinterest</span>synagogte</div>
-      </a>
-    </div>
-    <p class="contact-footer-note">based in los angeles + bay area. graduating may 2026. open to what's next.</p>
   </div>
 </div>
 
