@@ -655,6 +655,22 @@ svg#world { width: 100%; height: auto; display: block; cursor: crosshair; }
 .notes-empty { font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--fg3); text-align: center; padding: 2.5rem; letter-spacing: 0.04em; }
 @keyframes dots { 0%,100%{content:'.';} 50%{content:'..';} 75%{content:'...';} }
 .loading-dots::after { content: '.'; animation: dots 1s infinite; }
+.note-delete {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: var(--fg3);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0 2px;
+  line-height: 1;
+  transition: color .15s;
+  flex-shrink: 0;
+}
+.note-delete:hover { color: #c0604a; }
+.notes-empty { font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--fg3); text-align: center; padding: 2.5rem; letter-spacing: 0.04em; }
+@keyframes dots { 0%,100%{content:'.';} 50%{content:'..';} 75%{content:'...';} }
+.loading-dots::after { content: '.'; animation: dots 1s infinite; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 680px) {
@@ -927,21 +943,25 @@ function renderNotes() {
     list.innerHTML = '<div class="notes-empty">no notes yet — be the first ✦</div>';
     return;
   }
-  list.innerHTML = notes.slice().reverse().map(n => `
+  const reversed = notes.slice().reverse();
+  list.innerHTML = reversed.map((n, i) => {
+    const realIdx = notes.length - 1 - i;
+    return `
     <div class="note-card">
       <div class="note-icon ${n.type}">${n.type === 'been' ? '✈' : '✦'}</div>
-      <div>
+      <div style="min-width:0;flex:1;">
         <div class="note-meta">
           <span class="note-name">${n.name}</span>
           <span class="note-place">· ${n.place}</span>
           <span class="note-badge">${n.type === 'been' ? 'been' : 'want to go'}</span>
+          <button class="note-delete" onclick="deleteNote(${realIdx})" title="delete">×</button>
         </div>
         <div class="note-text">${n.text}</div>
       </div>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
 }
- 
+
 function submitNote() {
   const name  = document.getElementById('gbName').value.trim();
   const place = document.getElementById('gbPlace').value.trim();
@@ -954,6 +974,12 @@ function submitNote() {
   document.getElementById('gbName').value  = '';
   document.getElementById('gbPlace').value = '';
   document.getElementById('gbText').value  = '';
+  renderNotes();
+}
+
+function deleteNote(idx) {
+  notes.splice(idx, 1);
+  localStorage.setItem('sg_travel_notes', JSON.stringify(notes));
   renderNotes();
 }
  
