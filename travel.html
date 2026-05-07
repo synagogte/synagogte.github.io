@@ -18,6 +18,8 @@
   --accent: #93c3d4;
   --line: rgba(20,20,18,0.09);
   --surface: #EFEDE8;
+  --visited: #93c3d4;
+  --wishlist: #C8916A;
 }
 
 html { scroll-behavior: smooth; }
@@ -936,7 +938,7 @@ function setTab(t) {
   document.getElementById('tab-been').classList.toggle('active', t === 'been');
   document.getElementById('tab-want').classList.toggle('active', t === 'want');
 }
- 
+
 function renderNotes() {
   const list = document.getElementById('notesList');
   if (!notes.length) {
