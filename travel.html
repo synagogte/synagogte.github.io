@@ -534,6 +534,128 @@ footer p {
   animation: up .6s ease both;
 }
 
+/* ── TRAVEL MAP ── */
+.travel-body { padding: 2.5rem 2.5rem 5rem; }
+ 
+.travel-legend {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  color: var(--fg3);
+  letter-spacing: 0.06em;
+}
+.legend-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+ 
+.map-container {
+  position: relative;
+  width: 100%;
+  background: var(--surface);
+  border-radius: 4px;
+  overflow: visible;
+  border: 1px solid var(--line);
+  margin-bottom: 3rem;
+}
+svg#world { width: 100%; height: auto; display: block; cursor: crosshair; }
+ 
+.map-tooltip {
+  position: absolute;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity .18s;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 10px 14px;
+  min-width: 160px;
+  max-width: 210px;
+  box-shadow: 0 4px 20px rgba(20,20,18,0.07);
+}
+.map-tooltip.show { opacity: 1; }
+.tt-city { font-family: 'Zodiak', serif; font-size: 1rem; font-weight: 300; color: var(--fg); margin-bottom: 2px; }
+.tt-country { font-family: 'Geist Mono', monospace; font-size: 9px; color: var(--fg3); letter-spacing: 0.06em; margin-bottom: 8px; }
+.tt-photo { width: 100%; height: 88px; object-fit: cover; border-radius: 2px; }
+.tt-photo-placeholder {
+  width: 100%; height: 88px;
+  background: var(--surface);
+  border-radius: 2px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Geist Mono', monospace; font-size: 9px; color: var(--fg3);
+}
+.tt-note { font-size: 11px; color: var(--fg2); line-height: 1.5; margin-top: 7px; font-style: italic; }
+/*  
+.map-pin { cursor: pointer; transition: transform .15s; transform-origin: center; }
+.map-pin:hover { transform: scale(1.45); } */
+
+.map-pin { cursor: pointer; }
+.map-pin .pin-outer { transition: r .15s; }
+.map-pin:hover .pin-outer { r: 13; }
+ 
+/* ── GUESTBOOK ── */
+.gb-header {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--fg3);
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  display: flex; align-items: center; gap: 10px;
+}
+.gb-header::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+ 
+.gb-title { font-family: 'Zodiak', serif; font-size: 1.6rem; font-weight: 300; letter-spacing: -0.02em; color: var(--fg); margin-bottom: 0.4rem; }
+.gb-title em { font-style: italic; color: var(--accent); }
+.gb-sub { font-size: 13px; color: var(--fg2); margin-bottom: 1.4rem; line-height: 1.7; }
+ 
+.tab-toggle {
+  display: flex; background: var(--surface); border-radius: 100px; padding: 3px; width: fit-content; margin-bottom: 1.4rem;
+}
+.tab-btn {
+  font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.04em;
+  color: var(--fg3); background: none; border: none; padding: 6px 14px; border-radius: 100px; cursor: pointer; transition: all .2s;
+}
+.tab-btn.active { background: var(--bg); color: var(--fg); box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+ 
+.gb-form { display: flex; flex-direction: column; gap: .55rem; margin-bottom: 2rem; }
+.gb-row { display: grid; grid-template-columns: 1fr 1fr; gap: .55rem; }
+.gb-form input, .gb-form textarea {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 3px;
+  padding: 9px 12px; font-family: 'Geist', sans-serif; font-size: 12.5px;
+  color: var(--fg); font-weight: 300; outline: none; resize: none; transition: border-color .2s; width: 100%;
+}
+.gb-form input::placeholder, .gb-form textarea::placeholder { color: var(--fg3); }
+.gb-form input:focus, .gb-form textarea:focus { border-color: var(--accent); }
+.gb-submit {
+  align-self: flex-start; font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.04em;
+  padding: 9px 20px; border-radius: 3px; border: 1px solid var(--line);
+  background: var(--bg); color: var(--fg2); cursor: pointer; transition: all .2s;
+}
+.gb-submit:hover { border-color: var(--accent); color: var(--accent); }
+ 
+.notes-list { display: flex; flex-direction: column; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 2px; overflow: hidden; }
+.note-card { background: var(--bg); padding: 1rem 1.2rem; display: grid; grid-template-columns: auto 1fr; gap: .8rem; align-items: start; }
+.note-icon { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; }
+.note-icon.been { background: rgba(147,195,212,.15); color: var(--visited); }
+.note-icon.want { background: rgba(200,145,106,.15); color: var(--wishlist); }
+.note-meta { display: flex; gap: .5rem; align-items: baseline; margin-bottom: 3px; flex-wrap: wrap; }
+.note-name { font-family: 'Geist Mono', monospace; font-size: 10px; color: var(--fg2); letter-spacing: 0.02em; }
+.note-place { font-family: 'Geist Mono', monospace; font-size: 9px; color: var(--fg3); letter-spacing: 0.04em; }
+.note-badge { font-family: 'Geist Mono', monospace; font-size: 8px; letter-spacing: 0.06em; color: var(--fg3); padding: 2px 6px; border: 1px solid var(--line); border-radius: 2px; margin-left: auto; white-space: nowrap; }
+.note-text { font-size: 12.5px; color: var(--fg2); line-height: 1.65; }
+.note-ai { font-size: 11.5px; color: var(--fg2); line-height: 1.6; padding-top: 6px; border-top: 1px solid var(--line); margin-top: 6px; font-style: italic; }
+.notes-empty { font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--fg3); text-align: center; padding: 2.5rem; letter-spacing: 0.04em; }
+@keyframes dots { 0%,100%{content:'.';} 50%{content:'..';} 75%{content:'...';} }
+.loading-dots::after { content: '.'; animation: dots 1s infinite; }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 680px) {
   nav { padding: 1.2rem 1.5rem; flex-wrap: wrap; gap: 1rem; }
@@ -547,6 +669,8 @@ footer p {
   .fun-layout { grid-template-columns: 1fr; gap: 0; }
   .contact-grid { grid-template-columns: 1fr 1fr; }
 }
+
+
 </style>
 </head>
 <body>
@@ -565,41 +689,167 @@ footer p {
   </div>
 </nav>
 
-<!-- ═══ HOME ═══ -->
+<!-- ═══ TRAVEL ═══ -->
 <div class="panel active" id="panel-home">
+  <div class="travel-body">
+ 
+    <!-- header -->
+    <div class="home-top" style="padding-bottom:2rem;">
+      <h1 class="home-name">my<br><em>travels</em></h1>
+    </div>
+ 
+    <!-- legend -->
+    <div class="travel-legend">
+      <span><span class="legend-dot" style="background:var(--visited)"></span>been there</span>
+      <span><span class="legend-dot" style="background:var(--wishlist)"></span>want to go</span>
+      <span style="margin-left:auto">hover the dots ✦</span>
+    </div>
+ 
+    <!-- map -->
+    <div class="map-container" id="mapWrap">
+      <svg id="world" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+        <rect width="1000" height="500" fill="#E8E6E0"/>
+        <!-- North America -->
+        <path d="M 85 60 L 95 55 L 120 52 L 155 55 L 175 65 L 190 75 L 200 90 L 210 105 L 215 120 L 220 140 L 215 160 L 205 175 L 195 185 L 180 190 L 165 195 L 150 200 L 140 210 L 130 220 L 125 230 L 130 240 L 135 250 L 130 255 L 120 250 L 110 240 L 105 225 L 100 210 L 90 200 L 80 185 L 75 170 L 70 155 L 68 135 L 70 115 L 75 95 L 80 75 Z" fill="#D8D5CC" stroke="#C8C5BC" stroke-width=".5"/>
+        <!-- Central America -->
+        <path d="M 130 255 L 140 260 L 145 270 L 140 280 L 135 285 L 128 280 L 125 270 L 125 260 Z" fill="#D8D5CC" stroke="#C8C5BC" stroke-width=".5"/>
+        <!-- South America -->
+        <path d="M 175 270 L 195 265 L 215 270 L 235 285 L 250 305 L 260 330 L 265 355 L 268 375 L 265 400 L 255 420 L 240 435 L 220 445 L 200 445 L 180 435 L 165 420 L 155 400 L 150 375 L 150 350 L 155 320 L 160 295 L 165 275 Z" fill="#D8D5CC" stroke="#C8C5BC" stroke-width=".5"/>
+        <!-- Europe -->
+        <path d="M 440 60 L 460 55 L 480 57 L 500 62 L 515 70 L 520 82 L 515 95 L 505 105 L 495 110 L 480 115 L 465 115 L 450 110 L 438 100 L 432 88 L 432 75 Z" fill="#D8D5CC" stroke="#C8C5BC" stroke-width=".5"/>
+        <!-- Scandinavia -->
+        <path d="M 455 30 L 470 25 L 490 28 L 500 38 L 498 52 L 488 58 L 472 57 L 458 50 L 452 40 Z" fill="#D8D5CC" stroke="#C8C5BC" stroke-width=".5"/>
+        <!-- UK -->
+        <path d="M 425 68 L 435 65 L 442 72 L 440 82 L 432 85 L 423 80 L 420 73 Z" fill="#D8D5CC" stroke="#C8C5BC" stroke-width=".5"/>
+        <!-- Africa -->
+        <path d="M 455 130 L 480 125 L 505 128 L 525 140 L 538 160 L 545 185 L 545 215 L 540 245 L 530 270 L 515 295 L 498 315 L 480 325 L 462 318 L 448 298 L 438 270 L 432 245 L 430 215 L 432 185 L 438 160 L 445 145 Z" fill="#D8D5CC" stroke="#C8C5BC" stroke-width=".5"/>
+        <!-- Middle East -->
+        <path d="M 520 105 L 545 100 L 570 108 L 580 122 L 575 138 L 558 145 L 538 140 L 522 128 Z" fill="#D8D5CC" stroke="#C8C5BC" stroke-width=".5"/>
+        <!-- Russia -->
+        <path d="M 490 28 L 530 22 L 580 18 L 640 20 L 700 25 L 750 30 L 780 40 L 790 58 L 780 75 L 760 85 L 730 90 L 695 88 L 660 85 L 625 82 L 590 80 L 560 78 L 530 78 L 505 82 L 488 78 L 478 65 L 480 48 Z" fill="#D8D5CC" stroke="#C8C5BC" stroke-width=".5"/>
+        <!-- South Asia -->
+        <path d="M 600 110 L 630 105 L 658 110 L 672 128 L 675 150 L 668 170 L 650 182 L 628 185 L 608 175 L 595 158 L 592 138 Z" fill="#D8D5CC" stroke="#C8C5BC" stroke-width=".5"/>
+        <!-- Southeast Asia -->
+        <path d="M 680 130 L 710 125 L 730 135 L 738 152 L 732 168 L 715 175 L 695 170 L 678 158 Z" fill="#D8D5CC" stroke="#C8C5BC" stroke-width=".5"/>
+        <!-- China / East Asia -->
+        <path d="M 655 75 L 700 70 L 740 72 L 765 82 L 778 100 L 778 120 L 770 138 L 752 148 L 730 152 L 705 148 L 680 140 L 660 128 L 648 112 L 648 94 Z" fill="#D8D5CC" stroke="#C8C5BC" stroke-width=".5"/>
+        <!-- Japan -->
+        <path d="M 790 85 L 802 80 L 812 88 L 810 102 L 798 108 L 787 100 L 785 90 Z" fill="#D8D5CC" stroke="#C8C5BC" stroke-width=".5"/>
+        <!-- Australia -->
+        <path d="M 730 295 L 770 285 L 815 290 L 848 305 L 860 328 L 858 352 L 845 372 L 822 382 L 795 382 L 768 372 L 748 352 L 735 328 L 728 308 Z" fill="#D8D5CC" stroke="#C8C5BC" stroke-width=".5"/>
+        <!-- New Zealand -->
+        <path d="M 870 360 L 880 355 L 888 364 L 885 378 L 875 382 L 867 373 Z" fill="#D8D5CC" stroke="#C8C5BC" stroke-width=".5"/>
+ 
+        <!-- ── VISITED PINS (teal) ── -->
+        <g class="map-pin" data-city="Los Angeles" data-country="USA" data-note="home base ✦" data-type="been">
+          <circle cx="108" cy="165" r="13" fill="transparent"/>
+          <circle cx="108" cy="165" r="9" class="pin-outer" fill="#93c3d4" opacity=".18"/>
+          <circle cx="108" cy="165" r="5" fill="#93c3d4" opacity=".9"/>
+        </g>
+        <g class="map-pin" data-city="New York" data-country="USA" data-note="the city that never sleeps" data-type="been">
+          <circle cx="168" cy="140" r="13" fill="transparent"/>
+          <circle cx="168" cy="140" r="9" class="pin-outer" fill="#93c3d4" opacity=".18"/>
+          <circle cx="168" cy="140" r="5" fill="#93c3d4" opacity=".9"/>
+        </g>
+        <g class="map-pin" data-city="London" data-country="UK" data-note="rainy and perfect" data-type="been">
+          <circle cx="430" cy="74" r="13" fill="transparent"/>
+          <circle cx="430" cy="74" r="9" class="pin-outer" fill="#93c3d4" opacity=".18"/>
+          <circle cx="430" cy="74" r="5" fill="#93c3d4" opacity=".9"/>
+        </g>
+        <g class="map-pin" data-city="Paris" data-country="France" data-note="croissants every morning" data-type="been">
+          <circle cx="446" cy="80" r="13" fill="transparent"/>
+          <circle cx="446" cy="80" r="9" class="pin-outer" fill="#93c3d4" opacity=".18"/>
+          <circle cx="446" cy="80" r="5" fill="#93c3d4" opacity=".9"/>
+        </g>
+        <g class="map-pin" data-city="Mumbai" data-country="India" data-note="chaotic, vibrant, home" data-type="been">
+          <circle cx="618" cy="158" r="13" fill="transparent"/>
+          <circle cx="618" cy="158" r="9" class="pin-outer" fill="#93c3d4" opacity=".18"/>
+          <circle cx="618" cy="158" r="5" fill="#93c3d4" opacity=".9"/>
+        </g>
+        <g class="map-pin" data-city="Tokyo" data-country="Japan" data-note="seven-elevens and cherry blossoms" data-type="been">
+          <circle cx="796" cy="113" r="13" fill="transparent"/>
+          <circle cx="796" cy="113" r="9" class="pin-outer" fill="#93c3d4" opacity=".18"/>
+          <circle cx="796" cy="113" r="5" fill="#93c3d4" opacity=".9"/>
+        </g>
+        <g class="map-pin" data-city="Rome" data-country="Italy" data-note="gelato at every corner" data-type="been">
+          <circle cx="472" cy="92" r="13" fill="transparent"/>
+          <circle cx="472" cy="92" r="9" class="pin-outer" fill="#93c3d4" opacity=".18"/>
+          <circle cx="472" cy="92" r="5" fill="#93c3d4" opacity=".9"/>
+        </g>
+ 
+        <!-- ── WISHLIST PINS (warm) ── -->
+        <g class="map-pin" data-city="Kyoto" data-country="Japan" data-note="dream destination" data-type="want">
+          <circle cx="789" cy="119" r="13" fill="transparent"/>
+          <circle cx="789" cy="119" r="9" class="pin-outer" fill="#C8916A" opacity=".18"/>
+          <circle cx="789" cy="119" r="5" fill="#C8916A" opacity=".9"/>
+        </g>
+        <g class="map-pin" data-city="Buenos Aires" data-country="Argentina" data-note="tango + steak" data-type="want">
+          <circle cx="208" cy="408" r="13" fill="transparent"/>
+          <circle cx="208" cy="408" r="9" class="pin-outer" fill="#C8916A" opacity=".18"/>
+          <circle cx="208" cy="408" r="5" fill="#C8916A" opacity=".9"/>
+        </g>
+        <g class="map-pin" data-city="Cape Town" data-country="South Africa" data-note="table mountain someday" data-type="want">
+          <circle cx="466" cy="318" r="13" fill="transparent"/>
+          <circle cx="466" cy="318" r="9" class="pin-outer" fill="#C8916A" opacity=".18"/>
+          <circle cx="466" cy="318" r="5" fill="#C8916A" opacity=".9"/>
+        </g>
+        <g class="map-pin" data-city="Istanbul" data-country="Türkiye" data-note="two continents, one city" data-type="want">
+          <circle cx="516" cy="90" r="13" fill="transparent"/>
+          <circle cx="516" cy="90" r="9" class="pin-outer" fill="#C8916A" opacity=".18"/>
+          <circle cx="516" cy="90" r="5" fill="#C8916A" opacity=".9"/>
+        </g>
+        <g class="map-pin" data-city="Queenstown" data-country="New Zealand" data-note="LOTR hiking" data-type="want">
+          <circle cx="875" cy="370" r="13" fill="transparent"/>
+          <circle cx="875" cy="370" r="9" class="pin-outer" fill="#C8916A" opacity=".18"/>
+          <circle cx="875" cy="370" r="5" fill="#C8916A" opacity=".9"/>
+        </g>
+      </svg>
+ 
+      <!-- tooltip -->
+      <div class="map-tooltip" id="mapTooltip">
+        <div class="tt-city" id="ttCity"></div>
+        <div class="tt-country" id="ttCountry"></div>
+        <div class="tt-photo-placeholder" id="ttPhoto">[ your photo here ]</div>
+        <div class="tt-note" id="ttNote"></div>
+      </div>
+    </div>
+ 
+    <!-- guestbook -->
+    <div class="gb-header">guest book</div>
+    <p class="gb-title">leave a <em>note</em></p>
+    <p class="gb-sub">been somewhere on my list? dreaming of the same places? tell me about it.</p>
+ 
+    <div class="tab-toggle">
+      <button class="tab-btn active" id="tab-been" onclick="setTab('been')">i've been</button>
+      <button class="tab-btn" id="tab-want" onclick="setTab('want')">on my list</button>
+    </div>
+ 
+    <div class="gb-form">
+      <div class="gb-row">
+        <input type="text" id="gbName" placeholder="your name"/>
+        <input type="text" id="gbPlace" placeholder="place (city, country)"/>
+      </div>
+      <textarea id="gbText" rows="3" placeholder="a tip, a memory, a recommendation..."></textarea>
+      <button class="gb-submit" onclick="submitNote()">leave note ↗</button>
+    </div>
+ 
+    <div class="notes-list" id="notesList">
+      <div class="notes-empty">no notes yet — be the first ✦</div>
+    </div>
+ 
+  </div>
+</div>
+
+<!-- ═══ HOME ═══ -->
+<!-- <div class="panel active" id="panel-home">
   <div class="home">
     <div class="home-top">
       <h1 class="home-name">my<br><em>travels</em></h1>
       <p class="home-desc">
         wip
-        <!-- senior @ usc (cecs).<br>
-        making hardware do cool, fast ai things.<br>
-        twice at nvidia. <br>
-        research with acme & anrg labs @ usc. <br>
-        cecs outstanding academic achievement award. <br>
-        <br> -->
-        <!-- let's chat: <a href="mailto:sgogte@usc.edu">sgogte@usc.edu</a> -->
       </p>
     </div>
     <div class="home-bottom">
-      <div class="home-facts">
-        <!-- <div class="fact">
-          <div class="fact-val">#1</div>
-          <div class="fact-label">in CECS</div>
-        </div>
-        <div class="fact">
-          <div class="fact-val">2×</div>
-          <div class="fact-label">nvidia</div>
-        </div>
-        <div class="fact">
-          <div class="fact-val">210+</div>
-          <div class="fact-label">students taught</div>
-        </div> --> 
-        <!-- <div class="fact">
-          <div class="fact-val">500+</div>
-          <div class="fact-label">hacksc attendees</div>
-        </div> -->
-      </div>
       <div class="home-links">
         <a href="https://github.com/synagogte" target="_blank" class="home-link">github</a>
         <a href="https://www.linkedin.com/in/syna-gogte/" target="_blank" class="home-link">linkedin</a>
@@ -609,7 +859,7 @@ footer p {
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <footer>
   <p>syna gogte · usc cecs · 2026</p>
@@ -617,29 +867,97 @@ footer p {
 </footer>
 
 <script>
-function switchTab(name) {
-  document.querySelectorAll('.nav-tab').forEach(t => {
-    t.classList.toggle('active', t.dataset.tab === name);
-  });
-  document.querySelectorAll('.panel').forEach(p => {
-    const on = p.id === 'panel-' + name;
-    p.classList.toggle('active', on);
-    if (on) {
-      p.style.animation = 'none';
-      p.offsetHeight;
-      p.style.animation = '';
-    }
-  });
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-document.querySelectorAll('.nav-tab').forEach(btn => {
-  btn.addEventListener('click', () => switchTab(btn.dataset.tab));
-});
-
+// ── NAV SCROLL ──
 window.addEventListener('scroll', () => {
   document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 10);
 });
+ 
+// ── MAP TOOLTIP ──
+const mapWrap = document.getElementById('mapWrap');
+const tooltip = document.getElementById('mapTooltip');
+const ttCity = document.getElementById('ttCity');
+const ttCountry = document.getElementById('ttCountry');
+const ttNote = document.getElementById('ttNote');
+ 
+let activePin = null;
+ 
+document.querySelectorAll('.map-pin').forEach(pin => {
+  pin.addEventListener('mouseenter', e => {
+    activePin = pin;
+    ttCity.textContent = pin.dataset.city;
+    ttCountry.textContent = pin.dataset.country;
+    ttNote.textContent = pin.dataset.note;
+    tooltip.style.borderColor = pin.dataset.type === 'been'
+      ? 'rgba(147,195,212,.4)' : 'rgba(200,145,106,.4)';
+    tooltip.classList.add('show');
+  });
+  pin.addEventListener('mouseleave', () => {
+    activePin = null;
+    tooltip.classList.remove('show');
+  });
+});
+ 
+// position tooltip relative to the map container using raw mouse coords
+mapWrap.addEventListener('mousemove', e => {
+  if (!activePin) return;
+  const rect = mapWrap.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  const ttW = 215;
+  const ttH = 150;
+  const left = (x + ttW + 20 > rect.width) ? x - ttW - 10 : x + 16;
+  const top  = (y + ttH > rect.height)      ? y - ttH      : y + 10;
+  tooltip.style.left = left + 'px';
+  tooltip.style.top  = top  + 'px';
+});
+ 
+// ── GUESTBOOK ──
+let currentTab = 'been';
+let notes = JSON.parse(localStorage.getItem('sg_travel_notes') || '[]');
+ 
+function setTab(t) {
+  currentTab = t;
+  document.getElementById('tab-been').classList.toggle('active', t === 'been');
+  document.getElementById('tab-want').classList.toggle('active', t === 'want');
+}
+ 
+function renderNotes() {
+  const list = document.getElementById('notesList');
+  if (!notes.length) {
+    list.innerHTML = '<div class="notes-empty">no notes yet — be the first ✦</div>';
+    return;
+  }
+  list.innerHTML = notes.slice().reverse().map(n => `
+    <div class="note-card">
+      <div class="note-icon ${n.type}">${n.type === 'been' ? '✈' : '✦'}</div>
+      <div>
+        <div class="note-meta">
+          <span class="note-name">${n.name}</span>
+          <span class="note-place">· ${n.place}</span>
+          <span class="note-badge">${n.type === 'been' ? 'been' : 'want to go'}</span>
+        </div>
+        <div class="note-text">${n.text}</div>
+      </div>
+    </div>
+  `).join('');
+}
+ 
+function submitNote() {
+  const name  = document.getElementById('gbName').value.trim();
+  const place = document.getElementById('gbPlace').value.trim();
+  const text  = document.getElementById('gbText').value.trim();
+  if (!name || !place || !text) return;
+ 
+  notes.push({ name, place, text, type: currentTab, ts: Date.now() });
+  localStorage.setItem('sg_travel_notes', JSON.stringify(notes));
+ 
+  document.getElementById('gbName').value  = '';
+  document.getElementById('gbPlace').value = '';
+  document.getElementById('gbText').value  = '';
+  renderNotes();
+}
+ 
+renderNotes();
 </script>
 </body>
 </html>
