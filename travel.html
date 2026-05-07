@@ -585,18 +585,15 @@ svg#world { width: 100%; height: auto; display: block; cursor: crosshair; }
 .map-tooltip.show { opacity: 1; }
 .tt-city { font-family: 'Zodiak', serif; font-size: 1rem; font-weight: 300; color: var(--fg); margin-bottom: 2px; }
 .tt-country { font-family: 'Geist Mono', monospace; font-size: 9px; color: var(--fg3); letter-spacing: 0.06em; margin-bottom: 8px; }
-.tt-photo { width: 100%; height: 88px; object-fit: cover; border-radius: 2px; }
+.tt-photo { width: 100%; height: 120px; object-fit: cover; border-radius: 2px; }
 .tt-photo-placeholder {
-  width: 100%; height: 88px;
+  width: 100%; height: 120px;
   background: var(--surface);
   border-radius: 2px;
   display: flex; align-items: center; justify-content: center;
   font-family: 'Geist Mono', monospace; font-size: 9px; color: var(--fg3);
 }
 .tt-note { font-size: 11px; color: var(--fg2); line-height: 1.5; margin-top: 7px; font-style: italic; }
-/*  
-.map-pin { cursor: pointer; transition: transform .15s; transform-origin: center; }
-.map-pin:hover { transform: scale(1.45); } */
 
 .map-pin { cursor: pointer; }
 .map-pin .pin-outer { transition: r .15s; }
@@ -759,15 +756,25 @@ svg#world { width: 100%; height: auto; display: block; cursor: crosshair; }
         <path d="M 870 360 L 880 355 L 888 364 L 885 378 L 875 382 L 867 373 Z" fill="#D8D5CC" stroke="#C8C5BC" stroke-width=".5"/>
  
         <!-- ── VISITED PINS (teal) ── -->
-        <g class="map-pin" data-city="Los Angeles" data-country="USA" data-note="home base ✦" data-type="been">
+        <g class="map-pin" data-city="Los Angeles" data-country="USA" data-note="home base ✦" data-type="been" data-img="photos/losangeles.jpeg">
           <circle cx="108" cy="165" r="13" fill="transparent"/>
           <circle cx="108" cy="165" r="9" class="pin-outer" fill="#93c3d4" opacity=".18"/>
           <circle cx="108" cy="165" r="5" fill="#93c3d4" opacity=".9"/>
+        </g>
+        <g class="map-pin" data-city="Bay Area" data-country="USA" data-note="home base ✦" data-type="been">
+          <circle cx="95" cy="145" r="13" fill="transparent"/>
+          <circle cx="95" cy="145" r="9" class="pin-outer" fill="#93c3d4" opacity=".18"/>
+          <circle cx="95" cy="145" r="5" fill="#93c3d4" opacity=".9"/>
         </g>
         <g class="map-pin" data-city="New York" data-country="USA" data-note="the city that never sleeps" data-type="been">
           <circle cx="168" cy="140" r="13" fill="transparent"/>
           <circle cx="168" cy="140" r="9" class="pin-outer" fill="#93c3d4" opacity=".18"/>
           <circle cx="168" cy="140" r="5" fill="#93c3d4" opacity=".9"/>
+        </g>
+        <g class="map-pin" data-city="Costa Rica" data-country="Central America" data-note="tropical heaven" data-type="been">
+          <circle cx="133" cy="272" r="13" fill="transparent"/>
+          <circle cx="133" cy="272" r="9" class="pin-outer" fill="#93c3d4" opacity=".18"/>
+          <circle cx="133" cy="272" r="5" fill="#93c3d4" opacity=".9"/>
         </g>
         <g class="map-pin" data-city="London" data-country="UK" data-note="rainy and perfect" data-type="been">
           <circle cx="430" cy="74" r="13" fill="transparent"/>
@@ -779,10 +786,10 @@ svg#world { width: 100%; height: auto; display: block; cursor: crosshair; }
           <circle cx="446" cy="80" r="9" class="pin-outer" fill="#93c3d4" opacity=".18"/>
           <circle cx="446" cy="80" r="5" fill="#93c3d4" opacity=".9"/>
         </g>
-        <g class="map-pin" data-city="Mumbai" data-country="India" data-note="chaotic, vibrant, home" data-type="been">
-          <circle cx="618" cy="158" r="13" fill="transparent"/>
-          <circle cx="618" cy="158" r="9" class="pin-outer" fill="#93c3d4" opacity=".18"/>
-          <circle cx="618" cy="158" r="5" fill="#93c3d4" opacity=".9"/>
+        <g class="map-pin" data-city="New Delhi" data-country="India" data-note="chaotic, vibrant, home" data-type="been">
+          <circle cx="628" cy="138" r="13" fill="transparent"/>
+          <circle cx="628" cy="138" r="9" class="pin-outer" fill="#93c3d4" opacity=".18"/>
+          <circle cx="628" cy="138" r="5" fill="#93c3d4" opacity=".9"/>
         </g>
         <g class="map-pin" data-city="Tokyo" data-country="Japan" data-note="seven-elevens and cherry blossoms" data-type="been">
           <circle cx="796" cy="113" r="13" fill="transparent"/>
@@ -827,7 +834,8 @@ svg#world { width: 100%; height: auto; display: block; cursor: crosshair; }
       <div class="map-tooltip" id="mapTooltip">
         <div class="tt-city" id="ttCity"></div>
         <div class="tt-country" id="ttCountry"></div>
-        <div class="tt-photo-placeholder" id="ttPhoto">[ your photo here ]</div>
+        <!-- <div class="tt-photo-placeholder" id="ttPhoto">[ your photo here ]</div> -->
+        <div id="ttPhoto"></div>
         <div class="tt-note" id="ttNote"></div>
       </div>
     </div>
@@ -908,6 +916,12 @@ document.querySelectorAll('.map-pin').forEach(pin => {
     tooltip.style.borderColor = pin.dataset.type === 'been'
       ? 'rgba(147,195,212,.4)' : 'rgba(200,145,106,.4)';
     tooltip.classList.add('show');
+    const ttPhoto = document.getElementById('ttPhoto');
+    if (pin.dataset.img) {
+      ttPhoto.innerHTML = `<img class="tt-photo" src="${pin.dataset.img}" alt="${pin.dataset.city}"/>`;
+    } else {
+      ttPhoto.innerHTML = `<div class="tt-photo-placeholder">[ no photo yet ]</div>`;
+    }
   });
   pin.addEventListener('mouseleave', () => {
     activePin = null;
