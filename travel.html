@@ -970,7 +970,7 @@ function renderNotes() {
           <span class="note-name">${n.name}</span>
           <span class="note-place">· ${n.place}</span>
           <span class="note-badge">${n.type === 'been' ? 'been' : 'want to go'}</span>
-          <button class="note-delete" onclick="deleteNote(${realIdx})" title="delete">×</button>
+          <button class="note-delete" onclick="deleteNote(${n.id})" title="delete">×</button>
         </div>
         <div class="note-text">${n.text}</div>
       </div>
@@ -978,28 +978,44 @@ function renderNotes() {
   }).join('');
 }
 
-function submitNote() {
+const SUPA_URL = 'https://cmujcdgexaeunpyoedfj.supabase.co';
+const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNtdWpjZGdleGFldW5weW9lZGZqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgxODk5MzQsImV4cCI6MjA5Mzc2NTkzNH0._DwGewf1tAUZQAwSi6tq0SRS4c-n1s0VIKvddG224fE';
+
+async function loadNotes() {
+  const res = await fetch(`${SUPA_URL}/rest/v1/notes?order=ts.desc`, {
+    headers: { apikey: SUPA_KEY, Authorization: `Bearer ${SUPA_KEY}` }
+  });
+  notes = await res.json();
+  renderNotes();
+}
+
+async function submitNote() {
   const name  = document.getElementById('gbName').value.trim();
   const place = document.getElementById('gbPlace').value.trim();
   const text  = document.getElementById('gbText').value.trim();
   if (!name || !place || !text) return;
- 
-  notes.push({ name, place, text, type: currentTab, ts: Date.now() });
-  localStorage.setItem('sg_travel_notes', JSON.stringify(notes));
- 
+
+  await fetch(`${SUPA_URL}/rest/v1/notes`, {
+    method: 'POST',
+    headers: { apikey: SUPA_KEY, Authorization: `Bearer ${SUPA_KEY}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, place, text, type: currentTab, ts: Date.now() })
+  });
+
   document.getElementById('gbName').value  = '';
   document.getElementById('gbPlace').value = '';
   document.getElementById('gbText').value  = '';
-  renderNotes();
+  loadNotes();
 }
 
-function deleteNote(idx) {
-  notes.splice(idx, 1);
-  localStorage.setItem('sg_travel_notes', JSON.stringify(notes));
-  renderNotes();
+async function deleteNote(id) {
+  await fetch(`${SUPA_URL}/rest/v1/notes?id=eq.${id}`, {
+    method: 'DELETE',
+    headers: { apikey: SUPA_KEY, Authorization: `Bearer ${SUPA_KEY}` }
+  });
+  loadNotes();
 }
  
-renderNotes();
+loadNotes();
 </script>
 </body>
 </html>
