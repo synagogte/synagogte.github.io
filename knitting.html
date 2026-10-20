@@ -88,6 +88,16 @@ footer{max-width:none;padding:27px 2.5rem 36px}
 #sync-choice h2{font-size:30px;line-height:1.2;margin:12px 0 20px}
 .sync-choices{display:grid;gap:18px;margin:24px 0}#storage-note{max-width:550px}
 @media(max-width:760px){#sync-choice{padding:30px 22px}}
+/* A quiet workspace for the instruction on the needles. */
+.guide-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px}.guide-heading h3{margin-bottom:14px}.guide-heading .eyebrow{font-size:8px}.guide-pattern{display:inline-block;margin-bottom:14px}
+.guide-current{padding:22px;background:#93c3d417;border:1px solid var(--line);border-radius:4px}.guide-position{display:flex;justify-content:space-between;gap:12px;align-items:center;font:300 9px 'Geist Mono',monospace;color:var(--muted)}.guide-position button{font-size:9px}.guide-current h4{font-family:'Zodiak',Georgia,serif;font-size:26px;font-weight:300;line-height:1.2;margin:20px 0 12px}.guide-instruction{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.8!important;font-size:14px!important}.guide-count{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:20px}.guide-count strong{font:300 48px/1.2 'Zodiak',Georgia,serif}.guide-count span{font:300 10px 'Geist Mono',monospace;color:var(--muted)}.guide-repeat{margin-top:18px;padding-top:12px;border-top:1px solid var(--line)}.guide-repeat p{font-size:12px!important;margin-bottom:5px!important}.guide-repeat small{display:block;font-size:10px;line-height:1.7;color:var(--muted)}.guide-count-actions,.guide-navigation{display:flex;align-items:center;flex-wrap:wrap;gap:16px;margin-top:20px}.guide-navigation{border-top:1px solid var(--line);padding-top:16px;justify-content:space-between}.guide-navigation button{font-size:10px}.guide-count-actions .primary-button{font-size:11px}.guide-section button:disabled{opacity:.4;cursor:default}.guide-goal{font-size:12px!important;color:#496f59;margin-top:15px}.guide-empty{font-size:13px!important;color:var(--muted)}
+.guide-note-form{margin:20px 0}.guide-note-form label,.guide-step-form label{display:grid;gap:7px;font:300 10px/1.6 'Geist Mono',monospace;color:var(--muted);min-width:0}.guide-note-form textarea,.guide-step-form textarea,.guide-step-form input:not([type=hidden]),.guide-step-form select{width:100%;min-width:0;border:1px solid var(--line);border-radius:3px;padding:10px;background:#fff7;color:var(--fg);font:300 13px/1.7 'Geist',sans-serif}.guide-note-form textarea,.guide-step-form textarea{resize:vertical}.guide-plan summary,.guide-edit summary,.extra-tracker>summary,.guide-archive>summary{cursor:pointer;font:300 11px/1.7 'Geist Mono',monospace;color:var(--muted);padding:10px 0}.guide-plan-count{font-size:9px;margin-left:12px}.guide-outline{list-style:none;padding:0;margin:8px 0 18px}.guide-outline li{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding:6px 0}.guide-outline li.is-current{background:#93c3d414}.guide-outline li>button{display:flex;text-align:left;gap:12px;flex:1;min-width:0;padding:9px 6px;font-size:12px;line-height:1.6}.guide-outline li>button>span:last-child{min-width:0;overflow-wrap:anywhere}.guide-outline li>button>span:first-child{color:var(--muted);font:300 10px 'Geist Mono',monospace;padding-top:4px}.guide-outline small{display:block;font:300 9px/1.6 'Geist Mono',monospace;color:var(--muted);margin-top:4px}.guide-outline-actions{display:flex;gap:4px;flex-shrink:0}.guide-outline-actions button{padding:5px;font-size:15px;color:var(--muted)}.guide-step-form{display:grid;gap:14px;margin:12px 0}.guide-form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.guide-repeat-fields{display:grid;gap:12px}.guide-repeat-fields[hidden],.guide-target-field[hidden]{display:none}.guide-form-actions{display:flex;gap:24px}.guide-form-error:empty{display:none}.extra-tracker{margin-top:16px;border-top:1px solid var(--line)}.extra-tracker .detail-section{margin-top:6px}.guide-archive{margin-top:20px}.guide-archive li{margin:12px 0;white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;line-height:1.7}.guide-archive ol{padding-left:20px}.guide-archive .guide-stopping{white-space:pre-wrap;font-size:12px}
+@media(max-width:760px){.guide-current{padding:16px}.guide-current h4{font-size:23px}.guide-position{align-items:flex-start}.guide-count-actions{gap:14px}.guide-count-actions .primary-button{flex-basis:100%}.guide-navigation{gap:12px}.guide-form-row{grid-template-columns:1fr}.guide-heading{flex-wrap:wrap;gap:0}.guide-heading .eyebrow{margin-bottom:12px}.detail-layout:has(.guide-section) .detail-photo img,.detail-layout:has(.guide-section) .detail-photo .photo-placeholder{height:90px}}
+
+
+#ravelry-dialog .fine-print{font-size:10px;line-height:1.8;color:var(--muted)}
+#ravelry-dialog{padding:36px;max-width:650px;width:calc(100% - 32px)}#ravelry-dialog h2{font:300 32px/1.2 'Zodiak',Georgia,serif;margin:14px 0 20px}.ravelry-intro,.ravelry-howto{font-size:12px;line-height:1.9;color:var(--muted)}.ravelry-howto{padding-left:18px;margin:20px 0}.ravelry-howto li{margin:8px 0}.ravelry-howto a,.ravelry-bookmark-help a{color:var(--blue-ink);text-decoration:underline;text-underline-offset:3px}.ravelry-label{display:grid;gap:8px;margin:18px 0;font:300 10px/1.6 'Geist Mono',monospace;color:var(--muted)}#ravelry-paste,#ravelry-destination{width:100%;min-width:0;padding:11px;border:1px solid var(--line);border-radius:3px;background:#fff7;color:var(--fg);font:300 13px/1.7 'Geist',sans-serif}#ravelry-paste{resize:vertical}.ravelry-import-actions{display:flex;gap:18px;align-items:center;flex-wrap:wrap}.ravelry-file-label{display:grid;gap:8px}.ravelry-file-label input{font:300 10px 'Geist Mono',monospace;max-width:220px}.ravelry-bookmark-help{border-block:1px solid var(--line);padding:10px 0;margin-top:20px}.ravelry-bookmark-help summary{cursor:pointer;font:300 10px/1.7 'Geist Mono',monospace}.ravelry-bookmark-help p{font-size:12px;line-height:1.8;margin:12px 0}#ravelry-preview{list-style:none;padding:0;max-height:300px;overflow:auto;border-block:1px solid var(--line);margin:14px 0}#ravelry-preview li{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}#ravelry-preview label{display:flex;align-items:flex-start;gap:12px;flex:1;min-width:0;font-size:13px;line-height:1.7}#ravelry-preview input{accent-color:#426b7a;margin-top:6px;flex-shrink:0}#ravelry-preview span{min-width:0;overflow-wrap:anywhere}#ravelry-preview strong{font-weight:400}#ravelry-preview small{display:block;font:300 9px/1.7 'Geist Mono',monospace;color:var(--muted)}#ravelry-preview a{padding:6px}#ravelry-apply:disabled{opacity:.4;cursor:default}.footer-actions{flex-wrap:wrap}
+@media(max-width:760px){#ravelry-dialog{padding:30px 22px}#ravelry-dialog h2{font-size:27px}.ravelry-import-actions{gap:14px}.ravelry-import-actions .primary-button{width:100%}}
 </style>
 </head>
 <body>
@@ -128,7 +138,7 @@ footer{max-width:none;padding:27px 2.5rem 36px}
     </section>
     <section class="closing-note"><span aria-hidden="true">✳</span><p>some things for everyday.<br><em>some things just because.</em></p><a href="https://www.ravelry.com/people/sgogte/queue" target="_blank" rel="noopener">my ravelry queue ↗</a></section>
   </main>
-  <footer><div><span>made slowly, by syna.</span><p id="storage-note" role="status">Connecting to your saved board…</p></div><div class="footer-actions"><button id="retry-sync">retry saving ↻</button><button id="export">export my list ↗</button><button id="import">import a list</button><input id="import-file" type="file" accept="application/json,.json" hidden><button id="about">about this board</button></div></footer>
+  <footer><div><span>made slowly, by syna.</span><p id="storage-note" role="status">Connecting to your saved board…</p></div><div class="footer-actions"><button id="ravelry-import">import from Ravelry ↻</button><button id="retry-sync">retry saving ↻</button><button id="export">export backup ↗</button><button id="import">restore backup</button><input id="import-file" type="file" accept="application/json,.json" hidden><button id="about">about this board</button></div></footer>
   <dialog id="project-dialog" aria-labelledby="dialog-title"><button class="dialog-close" data-close aria-label="Close project">×</button><div id="project-detail"></div></dialog>
   <dialog id="edit-dialog" aria-labelledby="edit-title"><button class="dialog-close" data-close aria-label="Close editor">×</button><form id="project-form"><p class="eyebrow">a little room for an idea</p><h2 id="edit-title">make it yours.</h2><input name="id" type="hidden">
     <div class="form-grid"><label class="wide">Project name<input name="name" required maxlength="150"></label><label>Designer<input name="designer" maxlength="120"></label><label>Pattern access<select name="availability"><option>Free</option><option>Paid</option><option>Check listing</option><option>Discontinued</option></select></label><label class="wide">Pattern link<input name="url" type="url" placeholder="https://…"></label><label>Status<select name="status"><option value="someday">someday</option><option value="next">next up</option><option value="making">on my needles</option><option value="finished">finished</option></select></label><label>Style<select name="category" id="edit-category"></select></label><label>Craft<select name="craft"><option>Knitting</option><option>Crochet</option></select></label><label>Tags, separated by commas<input name="tags" placeholder="button details, spring & summer"></label><label class="wide">Photo URL<input name="image" type="url" placeholder="https://…"></label><label class="wide upload-label">Or use your own photo<input name="photoFile" type="file" accept="image/png,image/jpeg,image/webp"><small id="photo-upload-note">Your photo saves online with your board.</small></label><label>Photo type<select name="photoType"><option value="pattern">pattern reference</option><option value="mine">my own photo</option></select></label><label>Photo credit<input name="photoCredit" placeholder="Designer or photographer"></label><label>Yarn I have / chose<input name="ownedYarn" placeholder="yarn, colour, amount…"></label><label class="wide">Project / technique notes<textarea name="notes" rows="3"></textarea></label><label class="wide">My notes<textarea name="personalNotes" rows="3" placeholder="colours, outfit ideas, yarn plans, changes…"></textarea></label><label class="inline-check"><input name="queued" type="checkbox"> keep in my queue</label><label class="inline-check"><input name="small" type="checkbox"> little project</label></div>
@@ -136,6 +146,7 @@ footer{max-width:none;padding:27px 2.5rem 36px}
   </form></dialog>
 
   <dialog id="sync-choice" aria-labelledby="sync-choice-title"><p class="eyebrow">your saved projects</p><h2 id="sync-choice-title">choose where to pick up.</h2><p id="sync-choice-note"></p><div class="sync-choices"><button id="keep-browser" class="primary-button">use this browser’s version ↗</button><button id="use-cloud" class="text-button">use the online version ↗</button></div><p class="fine-print">Your browser copy stays here until you choose. Export is also available as a backup.</p></dialog>
+  <dialog id="ravelry-dialog" aria-labelledby="ravelry-title"><button class="dialog-close" data-close aria-label="Close Ravelry import">×</button><p class="eyebrow">new things to make</p><h2 id="ravelry-title">a few more possibilities.</h2><p class="ravelry-intro">Bring new patterns over from your Ravelry queue. Your existing projects keep their notes, progress, instructions and order.</p><ol class="ravelry-howto"><li><a href="https://www.ravelry.com/people/sgogte/queue?page=1&amp;view=thumblist" target="_blank" rel="noopener">Open my Ravelry queue ↗</a> and sign in there if needed.</li><li>Select the queue page’s contents (⌘A / Ctrl+A), then copy (⌘C / Ctrl+C).</li><li>Return here and paste below. You can repeat this for other queue pages.</li></ol><label class="ravelry-label" for="ravelry-paste">Paste queue content or pattern links<textarea id="ravelry-paste" rows="4" placeholder="Paste here, then preview new patterns…"></textarea></label><div class="ravelry-import-actions"><button id="ravelry-parse" class="primary-button">preview new patterns ↗</button><label class="text-button ravelry-file-label">or choose queue files<input id="ravelry-files" type="file" accept=".html,.htm,.json,.txt,text/html,application/json,text/plain" multiple></label></div><p class="fine-print">Files can be saved queue HTML or queue JSON. Pattern details and photos are included when present in what you copy; yarn links can be added later.</p><details class="ravelry-bookmark-help"><summary>copy multiple queue pages with a bookmark</summary><p>Drag <a id="ravelry-bookmark" href="#">copy my Ravelry queue</a> to your bookmarks bar. Open your signed-in Ravelry queue and click that bookmark. Then paste the copied list here, or choose the downloaded JSON file.</p><p id="ravelry-bookmark-note" class="fine-print">It reads your queue in your Ravelry tab. Your password and cookies stay there.</p></details><p id="ravelry-error" class="form-error" role="alert"></p><div id="ravelry-results" hidden><p id="ravelry-result-note" class="fine-print" role="status"></p><ul id="ravelry-preview"></ul><label class="ravelry-label">Add new patterns to<select id="ravelry-destination"><option value="wishlist">my wishlist</option><option value="queue">my queue</option></select></label><button id="ravelry-apply" class="primary-button" disabled>add new patterns ↗</button></div></dialog>
   <dialog id="about-dialog" aria-labelledby="about-title"><button class="dialog-close" data-close aria-label="Close about">×</button><p class="eyebrow">a note on the list</p><h2 id="about-title">a wardrobe in progress.</h2><p>This board starts with your 81 Ravelry queue entries, Mexico and Miami, four small-project ideas, the handwarmers you’re making, and your first finished sweater.</p><p>The making order is a starting point. Move things around, add a new idea, or leave something for someday. Small doesn’t always mean quick; the project notes explain when a technique or fine gauge adds time.</p><p>Photos belong to their credited creators and load from the linked listings. They are pattern references, not photos of your finished work. You can replace them with your own photos.</p><p>Yarn links are either listed in the pattern or explicitly marked as candidates. Check the full pattern for strand combinations, washed gauge, fabric and the amount for your size before buying.</p><p>Changes, notes, progress and photos save online and load automatically on any browser or device. No sign-in is needed. Anyone with this page link can view or change the shared board. A browser copy helps recover unsynced changes. Export is an optional backup.</p><a class="text-button" href="index.html">back to my website ↗</a></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <!-- Project data and behaviour are kept in this page, like the rest of the site. -->
@@ -158,6 +169,105 @@ window.KNIT_SEED = {"version":1,"projects":[{"name":"mohair boatneck top","url":
     try { const url = new URL(value); return ['https:','http:'].includes(url.protocol) ? url.href : ''; } catch { return ''; }
   };
   const short = (value, limit = 1000) => typeof value === 'string' ? value.slice(0, limit) : '';
+  const guideNumber=(value,fallback=0,max=999999)=>Number.isFinite(Number(value))?Math.min(max,Math.max(0,Math.floor(Number(value)))):fallback;
+  function cleanGuide(raw){
+    const g=raw&&typeof raw==='object'?raw:{},seen=new Set();
+    const steps=(Array.isArray(g.steps)?g.steps:[]).filter(s=>s&&typeof s.id==='string'&&/^[a-zA-Z0-9_-]{1,90}$/.test(s.id)&&!seen.has(s.id)&&seen.add(s.id)&&short(s.instruction,4000).trim()).slice(0,100).map(s=>({
+      id:s.id,title:short(s.title,160),instruction:short(s.instruction,4000),unit:s.unit==='rounds'?'rounds':'rows',mode:s.mode==='repeat'?'repeat':'count',target:s.target===null||s.target===''||s.target===undefined?null:Math.max(1,guideNumber(s.target,1)),every:Math.max(1,guideNumber(s.every,1,999)),times:Math.max(1,guideNumber(s.times,1,999)),action:short(s.action,160),count:guideNumber(s.count),done:s.done===true
+    }));
+    const ids=new Set(steps.map(s=>s.id));
+    const history=(Array.isArray(g.history)?g.history:[]).slice(-30).filter(h=>h&&Array.isArray(h.steps)).map(h=>({activeId:ids.has(h.activeId)?h.activeId:null,steps:h.steps.filter(s=>s&&ids.has(s.id)).slice(0,100).map(s=>({id:s.id,count:guideNumber(s.count),done:s.done===true}))}));
+    return {steps,activeId:ids.has(g.activeId)?g.activeId:steps.find(s=>!s.done)?.id||steps[0]?.id||null,stoppingNote:short(g.stoppingNote,3000),updatedAt:short(g.updatedAt,24),history};
+  }
+  const guide=p=>p.guide||(p.guide=cleanGuide());
+  const guideTarget=s=>s.mode==='repeat'?s.every*s.times:s.target;
+  function guideCheckpoint(g){g.history.push({activeId:g.activeId,steps:g.steps.map(s=>({id:s.id,count:s.count,done:s.done}))});g.history=g.history.slice(-30);}
+  function readGuideNote(p){const f=$('.guide-note-form');if(f?.dataset.project===p.id)guide(p).stoppingNote=f.elements.stoppingNote.value.slice(0,3000);}
+  function guideCurrent(p){
+    const g=guide(p),s=g.steps.find(s=>s.id===g.activeId);
+    if(!s)return '<p class="guide-empty">Add the first instruction from your pattern below. Each step keeps its own counter.</p>';
+    const index=g.steps.indexOf(s),target=guideTarget(s),atGoal=target!==null&&s.count>=target;
+    let repeats='';
+    if(s.mode==='repeat'){
+      const done=Math.min(s.times,Math.floor(s.count/s.every)),due=s.count>0&&s.count%s.every===0&&s.count<=target;
+      repeats=`<div class="guide-repeat"><p><strong>${done} / ${s.times}</strong> repeats completed · every ${s.every} ${esc(s.unit)}</p><p>${atGoal?'All planned repeats counted.':`Next repeat ends on ${s.unit==='rounds'?'round':'row'} ${Math.min(target,(Math.floor(s.count/s.every)+1)*s.every)}.`}</p>${s.action?`<p>${due?`At ${s.unit==='rounds'?'round':'row'} ${s.count}: `:'Repeat action: '}<strong>${esc(s.action)}</strong></p>`:''}<small>Tap after working the whole ${s.unit==='rounds'?'round':'row'}, including the repeat action when due.</small></div>`;
+    }
+    return `<div class="guide-position"><span>step ${index+1} / ${g.steps.length}${s.done?' · completed':''}</span><button type="button" class="text-button" data-guide-action="edit" data-project="${esc(p.id)}" data-step="${esc(s.id)}">edit instruction ↗</button></div><h4>${esc(s.title||`Step ${index+1}`)}</h4><p class="guide-instruction">${esc(s.instruction)}</p><div class="guide-count" role="status" aria-live="polite"><strong>${s.count}</strong><span>${target!==null?`/ ${target} `:''}${esc(s.unit)} completed</span></div>${target!==null?`<div class="step-meter" aria-label="${s.count} of ${target} ${esc(s.unit)}"><span style="width:${Math.min(100,s.count/target*100)}%"></span></div>`:''}${repeats}${atGoal&&!s.done?'<p class="guide-goal">Goal reached. Mark this step complete when you’re ready.</p>':''}<div class="guide-count-actions"><button type="button" class="primary-button" data-guide-action="count" data-project="${esc(p.id)}" ${s.done||atGoal?'disabled':''}>＋ finished a ${s.unit==='rounds'?'round':'row'}</button><button type="button" class="text-button" data-guide-action="minus" data-project="${esc(p.id)}" ${!s.count||s.done?'disabled':''}>− one</button><button type="button" class="text-button" data-guide-action="undo" data-project="${esc(p.id)}" ${!g.history.length?'disabled':''}>undo ↶</button></div><div class="guide-navigation"><button type="button" class="text-button" data-guide-action="previous" data-project="${esc(p.id)}" ${index===0?'disabled':''}>← previous</button><button type="button" class="text-button" data-guide-action="${s.done?'reopen':'complete'}" data-project="${esc(p.id)}">${s.done?'reopen this step':'complete step ✓'}</button><button type="button" class="text-button" data-guide-action="next" data-project="${esc(p.id)}" ${index===g.steps.length-1?'disabled':''}>next →</button></div>${g.steps.every(s=>s.done)?'<p class="guide-goal">Every instruction is complete. You can mark the project finished above.</p>':''}`;
+  }
+  function guideOutline(p){
+    const g=guide(p);
+    return g.steps.map((s,i)=>`<li class="${s.id===g.activeId?'is-current':''}"><button type="button" data-guide-action="select" data-project="${esc(p.id)}" data-step="${esc(s.id)}" ${s.id===g.activeId?'aria-current="step"':''}><span>${s.done?'✓':String(i+1).padStart(2,'0')}</span><span>${esc(s.title||s.instruction.slice(0,70))}<small>${s.count}${guideTarget(s)!==null?` / ${guideTarget(s)}`:''} ${esc(s.unit)}</small></span></button><div class="guide-outline-actions"><button type="button" data-guide-action="up" data-project="${esc(p.id)}" data-step="${esc(s.id)}" aria-label="Move step ${i+1} earlier" ${i===0?'disabled':''}>↑</button><button type="button" data-guide-action="down" data-project="${esc(p.id)}" data-step="${esc(s.id)}" aria-label="Move step ${i+1} later" ${i===g.steps.length-1?'disabled':''}>↓</button><button type="button" data-guide-action="remove" data-project="${esc(p.id)}" data-step="${esc(s.id)}" aria-label="Remove step ${i+1}">×</button></div></li>`).join('');
+  }
+  function guideArchive(p){
+    const g=guide(p);if(p.status!=='finished'||!g.steps.length)return '';
+    return `<details class="guide-archive"><summary>my instructions & stopping point</summary>${g.stoppingNote?`<p class="guide-stopping">${esc(g.stoppingNote)}</p>`:''}<ol>${g.steps.map(s=>`<li><strong>${esc(s.title)}</strong>${s.title?'<br>':''}${esc(s.instruction)}<br><small>${s.done?'✓ complete · ':''}${s.count} ${esc(s.unit)} counted</small></li>`).join('')}</ol></details>`;
+  }
+  function guideEditor(p){
+    const g=guide(p);
+    return `<section class="detail-section guide-section" aria-label="Knitting mode" data-project="${esc(p.id)}"><div class="guide-heading"><h3>knitting mode.</h3><span class="eyebrow">one step at a time</span></div>${p.url?`<a class="text-button guide-pattern" href="${esc(p.url)}" target="_blank" rel="noopener">open original pattern ↗</a>`:''}<div class="guide-current">${guideCurrent(p)}</div><form class="guide-note-form" data-project="${esc(p.id)}"><label>Where I left off<textarea name="stoppingNote" rows="2" maxlength="3000" placeholder="e.g. finished round 7; begin round 8 on the right side…">${esc(g.stoppingNote)}</textarea></label><small class="fine-print">Saves automatically with your project.</small></form><details class="guide-plan" ${!g.steps.length?'open':''}><summary>my instructions <span class="guide-plan-count">${g.steps.filter(s=>s.done).length} / ${g.steps.length} done</span></summary><ol class="guide-outline">${guideOutline(p)}</ol><details class="guide-edit" ${!g.steps.length?'open':''}><summary>＋ add an instruction</summary><form class="guide-step-form" data-project="${esc(p.id)}"><input type="hidden" name="stepId"><label>Step name, optional<input name="title" maxlength="160" placeholder="e.g. neckline ribbing"></label><label>Instruction<textarea name="instruction" rows="3" required maxlength="4000" placeholder="Add the instruction for your size from your pattern…"></textarea></label><div class="guide-form-row"><label>Track<select name="mode"><option value="count">a row / round count</option><option value="repeat">a repeating action</option></select></label><label>Unit<select name="unit"><option value="rows">rows</option><option value="rounds">rounds</option></select></label></div><label class="guide-target-field">Goal, optional<input name="target" type="number" min="1" max="999999" step="1" placeholder="e.g. 12; leave blank for ‘until it measures…’"></label><div class="guide-repeat-fields" hidden><div class="guide-form-row"><label>Every how many rows / rounds?<input name="every" type="number" min="1" max="999" step="1" value="4"></label><label>How many times?<input name="times" type="number" min="1" max="999" step="1" value="6"></label></div><label>Repeat action, optional<input name="action" maxlength="160" placeholder="e.g. work the increase round"></label><small class="fine-print">Counts from the start of this step. Add any setup rows as a separate instruction.</small></div><p class="guide-form-error form-error" role="alert"></p><div class="guide-form-actions"><button type="submit" class="text-button">save instruction ↗</button><button type="button" class="text-button" data-guide-action="cancel-edit" data-project="${esc(p.id)}">cancel</button></div></form></details></details></section>`;
+  }
+  function refreshGuide(p,focusAction){
+    const section=$('.guide-section');if(section?.dataset.project!==p.id)return;
+    $('.guide-current',section).innerHTML=guideCurrent(p);$('.guide-outline',section).innerHTML=guideOutline(p);
+    $('.guide-plan-count',section).textContent=`${guide(p).steps.filter(s=>s.done).length} / ${guide(p).steps.length} done`;
+    if(focusAction)$(`[data-guide-action="${focusAction}"]`,section)?.focus({preventScroll:true});
+  }
+  function resetGuideForm(form){form.reset();form.elements.stepId.value='';$('.guide-target-field',form).hidden=false;$('.guide-repeat-fields',form).hidden=true;$('.guide-form-error',form).textContent='';form.querySelector('[type="submit"]').textContent='save instruction ↗';}
+  function saveGuide(p){guide(p).updatedAt=today();save();render();}
+  document.addEventListener('click',event=>{
+    const button=event.target.closest('[data-guide-action]');if(!button)return;
+    const p=find(button.dataset.project);if(!p||p.status!=='making')return;
+    const g=guide(p),s=g.steps.find(s=>s.id===g.activeId),action=button.dataset.guideAction;
+    captureDrafts(p);
+    if(action==='edit'){
+      const step=g.steps.find(s=>s.id===button.dataset.step);if(!step)return;
+      const section=$('.guide-section'),form=$('.guide-step-form',section);$('.guide-plan',section).open=true;$('.guide-edit',section).open=true;
+      for(const field of ['title','instruction','mode','unit','target','every','times','action'])form.elements[field].value=step[field]??'';
+      form.elements.stepId.value=step.id;$('.guide-target-field',form).hidden=step.mode==='repeat';$('.guide-repeat-fields',form).hidden=step.mode!=='repeat';form.querySelector('[type="submit"]').textContent='update instruction ↗';form.elements.instruction.focus();return;
+    }
+    if(action==='cancel-edit'){const form=$('.guide-step-form');resetGuideForm(form);form.closest('.guide-edit').open=false;return;}
+    if(action==='remove'){
+      const index=g.steps.findIndex(s=>s.id===button.dataset.step);if(index<0||!confirm('Remove this instruction and its counter?'))return;
+      const removed=g.steps.splice(index,1)[0];if(g.activeId===removed.id)g.activeId=g.steps[Math.min(index,g.steps.length-1)]?.id||null;g.history=[];
+      if($('.guide-step-form').elements.stepId.value===removed.id)resetGuideForm($('.guide-step-form'));
+    }else if(action==='up'||action==='down'){
+      const from=g.steps.findIndex(s=>s.id===button.dataset.step),to=from+(action==='up'?-1:1);if(from<0||to<0||to>=g.steps.length)return;
+      [g.steps[from],g.steps[to]]=[g.steps[to],g.steps[from]];g.history=[];
+    }else if(action==='undo'){
+      const old=g.history.pop();if(!old)return;g.activeId=old.activeId;
+      old.steps.forEach(previous=>{const step=g.steps.find(s=>s.id===previous.id);if(step){step.count=previous.count;step.done=previous.done;}});
+    }else if(action==='select'){
+      if(!g.steps.some(s=>s.id===button.dataset.step)||g.activeId===button.dataset.step)return;guideCheckpoint(g);g.activeId=button.dataset.step;
+    }else if(s){
+      const index=g.steps.indexOf(s),target=guideTarget(s);
+      if(action==='count'){if(s.done||target!==null&&s.count>=target||s.count>=999999)return;guideCheckpoint(g);s.count++;}
+      else if(action==='minus'){if(!s.count||s.done)return;guideCheckpoint(g);s.count--;}
+      else if(action==='complete'){guideCheckpoint(g);s.done=true;const next=g.steps.slice(index+1).find(s=>!s.done);if(next)g.activeId=next.id;}
+      else if(action==='reopen'){guideCheckpoint(g);s.done=false;}
+      else if(action==='previous'||action==='next'){const next=g.steps[index+(action==='previous'?-1:1)];if(!next)return;guideCheckpoint(g);g.activeId=next.id;}
+      else return;
+    }else return;
+    saveGuide(p);refreshGuide(p,['count','minus','undo','complete','previous','next'].includes(action)?action:null);
+  });
+  document.addEventListener('change',event=>{
+    if(!event.target.matches('.guide-step-form [name="mode"]'))return;
+    const form=event.target.form;$('.guide-target-field',form).hidden=event.target.value==='repeat';$('.guide-repeat-fields',form).hidden=event.target.value!=='repeat';
+  });
+  document.addEventListener('submit',event=>{
+    if(event.target.matches('.guide-note-form')){event.preventDefault();const p=find(event.target.dataset.project);if(p){readGuideNote(p);saveGuide(p);}return;}
+    if(!event.target.matches('.guide-step-form'))return;
+    event.preventDefault();const form=event.target,p=find(form.dataset.project);if(!p||p.status!=='making')return;
+    const g=guide(p),values=new FormData(form),id=String(values.get('stepId')),old=g.steps.find(s=>s.id===id),error=$('.guide-form-error',form);
+    const instruction=String(values.get('instruction')).trim();if(!instruction){error.textContent='Add an instruction for this step.';return;}
+    if(!old&&g.steps.length>=100){error.textContent='Keep this guide to 100 instructions or fewer.';return;}
+    const step={id:old?.id||'guide-'+Date.now()+'-'+Math.random().toString(36).slice(2,7),title:String(values.get('title')).trim(),instruction,mode:String(values.get('mode')),unit:String(values.get('unit')),target:values.get('target')===''?null:Number(values.get('target')),every:Number(values.get('every')),times:Number(values.get('times')),action:String(values.get('action')).trim(),count:old?.count||0,done:old?.done||false};
+    if(step.mode==='repeat'&&(!Number.isInteger(step.every)||step.every<1||step.every>999||!Number.isInteger(step.times)||step.times<1||step.times>999)){error.textContent='Enter how many rows or rounds per repeat and how many times, from 1 to 999.';return;}
+    const target=guideTarget(step);
+    if(target!==null&&step.count>target){error.textContent=`This step already has ${step.count} ${step.unit}. Keep its goal at least that high, or reduce its counter first.`;return;}
+    captureDrafts(p);if(old)Object.assign(old,step);else{g.steps.push(step);if(!g.activeId)g.activeId=step.id;}g.history=[];
+    saveGuide(p);refreshGuide(p);resetGuideForm(form);form.closest('.guide-edit').open=false;toast(old?'Instruction updated.':'Instruction added.');
+  });
+
   function cleanProgress(raw={}) {
     const p=raw&&typeof raw==='object'?raw:{};
     return {section:short(p.section,160),count:Math.max(0,Math.min(999999,Number(p.count)||0)),unit:['rows','rounds','cm','pieces'].includes(p.unit)?p.unit:'rows',target:p.target!==null&&p.target!==''&&Number.isFinite(Number(p.target))?Math.max(0,Math.min(999999,Number(p.target))):null,updatedAt:short(p.updatedAt,24),steps:Array.isArray(p.steps)?p.steps.filter(s=>s&&typeof s.id==='string'&&/^[a-zA-Z0-9_-]{1,90}$/.test(s.id)&&short(s.label,160)).slice(0,50).map(s=>({id:s.id,label:short(s.label,160),done:s.done===true})):[]};
@@ -169,7 +279,7 @@ window.KNIT_SEED = {"version":1,"projects":[{"name":"mohair boatneck top","url":
       if (!raw || typeof raw.id !== 'string' || !/^[a-zA-Z0-9_-]{1,90}$/.test(raw.id) || seen.has(raw.id) || !short(raw.name,150)) throw Error('The list contains an invalid or duplicate project.');
       seen.add(raw.id);
       const p = {id:raw.id, name:short(raw.name,150), designer:short(raw.designer,120), url:validURL(raw.url), image:validURL(short(raw.image,1800000),true), photoCredit:short(raw.photoCredit,150), photoType:raw.photoType==='mine'?'mine':'pattern', availability:['Free','Paid','Check listing','Discontinued'].includes(raw.availability)?raw.availability:'Check listing', status:Object.hasOwn(statuses,raw.status)?raw.status:'someday', finishedAt:/^\d{4}-\d{2}-\d{2}$/.test(raw.finishedAt||'')?raw.finishedAt:'', category:short(raw.category,70)||'to explore', notes:short(raw.notes,3000), personalNotes:short(raw.personalNotes,8000), ownedYarn:short(raw.ownedYarn,500), queued:raw.queued === true, small:raw.small === true, craft:raw.craft === 'Crochet'?'Crochet':'Knitting', queueNumber:Number.isInteger(raw.queueNumber)?raw.queueNumber:null, tags:Array.isArray(raw.tags)?raw.tags.filter(v=>typeof v==='string').slice(0,15).map(v=>v.slice(0,70)):[], fields:{}, yarns:[], customYarns:[]};
-      p.progress=cleanProgress(raw.progress);
+      p.progress=cleanProgress(raw.progress);p.guide=cleanGuide(raw.guide);
       for (const field of ['Gauge','Needle size','Yarn weight','Yardage','Sizes available']) if (typeof raw.fields?.[field] === 'string') p.fields[field] = raw.fields[field].slice(0,1500);
       for (const list of ['yarns','customYarns']) p[list] = Array.isArray(raw[list]) ? raw[list].slice(0,25).filter(y=>y && short(y.name,200) && validURL(y.url)).map(y=>({name:short(y.name,200),url:validURL(y.url),kind:list==='customYarns'?'My candidate':short(y.kind,100)||'Listed in pattern'})) : [];
       return p;
@@ -191,6 +301,8 @@ window.KNIT_SEED = {"version":1,"projects":[{"name":"mohair boatneck top","url":
   const progress = p => p.progress||(p.progress=cleanProgress());
   function setView(next) {view=next;try{history.replaceState(null,'','#'+next);}catch{}render();}
   function progressSummary(p) {
+    const g=guide(p),current=g.steps.find(s=>s.id===g.activeId);
+    if(current)return `<div class="tracking-summary"><p>${esc(current.title||current.instruction.slice(0,100))}</p><span>${current.count}${guideTarget(current)!==null?` / ${guideTarget(current)}`:''} ${esc(current.unit)}</span><span>${g.steps.filter(s=>s.done).length} / ${g.steps.length} instructions done</span>${g.stoppingNote?`<p>${esc(g.stoppingNote)}</p>`:''}</div>`;
     const t=progress(p),done=t.steps.filter(s=>s.done).length;
     return `<div class="tracking-summary"><p>${esc(t.section||'a place to pick up where I left off')}</p><span>${t.count}${t.target!==null?` / ${t.target}`:''} ${esc(t.unit)}</span>${t.steps.length?`<span>${done} / ${t.steps.length} steps</span><div class="step-meter" aria-label="${done} of ${t.steps.length} steps complete"><span style="width:${done/t.steps.length*100}%"></span></div>`:''}</div>`;
   }
@@ -209,6 +321,7 @@ window.KNIT_SEED = {"version":1,"projects":[{"name":"mohair boatneck top","url":
   }
   function captureDrafts(p) {
     if(!$('#project-dialog').open)return;
+    readGuideNote(p);
     const noteForm=$('.project-notes-form');if(noteForm?.dataset.project===p.id)p.personalNotes=noteForm.elements.personalNotes.value.slice(0,8000);
     const tracker=$('.tracker-form');if(tracker?.dataset.project===p.id)readTrackerForm(p,tracker);
   }
@@ -288,7 +401,7 @@ window.KNIT_SEED = {"version":1,"projects":[{"name":"mohair boatneck top","url":
     const p=find(id);if(!p)return;
     const all=yarns(p);
     const fields=['Yarn weight','Needle size','Gauge'].filter(f=>p.fields[f]);
-    $('#project-detail').innerHTML=`<div class="detail-layout"><div class="detail-photo">${photo(p,true)}<span class="photo-credit">${p.image?(p.photoType==='mine'?`my ${p.status==='finished'?'finished piece':'progress photo'}${p.photoCredit?` · ${esc(p.photoCredit)}`:''}`:`photo © ${esc(p.photoCredit||p.designer||'pattern creator')} · pattern reference`):'add your own photo in edit project'}</span></div><div class="detail-content"><p class="eyebrow">${esc(statuses[p.status])} / ${esc(p.availability.toLowerCase())} / ${esc(p.craft.toLowerCase())}${p.status==='finished'&&p.finishedAt?` / ${esc(finishDate(p))}`:''}</p><h2 id="dialog-title">${esc(p.name)}</h2><p class="designer">${esc(p.designer||'my own idea')}</p><p>${esc(p.notes)}</p><div class="tag-list">${p.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div><div class="detail-links">${p.url?`<a class="primary-button" href="${esc(p.url)}" target="_blank" rel="noopener" style="text-decoration:none">view pattern ↗</a>`:''}<button class="text-button" data-action="edit" data-id="${esc(p.id)}">edit project</button>${p.status!=='finished'?`<button class="text-button" data-action="${p.status==='making'?'requeue':'start'}" data-id="${esc(p.id)}">${p.status==='making'?'back to queue ↺':'start this project →'}</button>`:''}<button class="text-button finish-button" data-action="${p.status==='finished'?'requeue':'finish'}" data-id="${esc(p.id)}">${p.status==='finished'?'move back to queue ↺':'mark finished ✓'}</button>${p.status!=='making'&&p.status!=='finished'?`<button class="text-button" data-action="toggle-queue" data-id="${esc(p.id)}">${p.queued?'remove from queue':'＋ add to queue'}</button>`:''}</div>${p.status==='making'?progressEditor(p):''}<div class="detail-section"><h3>my notes</h3><form class="project-notes-form" data-project="${esc(p.id)}"><label class="sr-only" for="project-notes">Notes for ${esc(p.name)}</label><textarea id="project-notes" name="personalNotes" rows="5" maxlength="8000" placeholder="colours, outfit ideas, fit notes, changes for next time…">${esc(p.personalNotes)}</textarea><button class="text-button" type="submit">save notes ↗</button></form></div>${fields.length?`<div class="detail-section"><dl class="details-grid">${fields.map(f=>`<div><dt>${esc(f.toLowerCase())}</dt><dd>${esc(p.fields[f])}</dd></div>`).join('')}</dl></div>`:''}<div class="detail-section"><h3>yarn possibilities</h3>${p.ownedYarn?`<p><strong>My yarn:</strong> ${esc(p.ownedYarn)}</p>`:''}${all.length?`<ul class="yarn-list">${all.map((y,i)=>`<li><a href="${esc(y.url)}" target="_blank" rel="noopener">${esc(y.name)} ↗</a>${i>=p.yarns.length?`<button class="remove-yarn" data-action="remove-yarn" data-id="${esc(p.id)}" data-index="${i-p.yarns.length}" aria-label="Remove ${esc(y.name)}">×</button>`:''}<small>${esc(y.kind)}</small></li>`).join('')}</ul>`:'<p class="fine-print">No yarn chosen yet. Add a possibility below.</p>'}<p class="fine-print">Follow the full pattern for yarns held together, washed gauge, fabric and quantities. Candidates are ideas to swatch, not confirmed substitutes.</p><form class="yarn-form" data-project="${esc(p.id)}"><label class="sr-only" for="yarn-name">Yarn name</label><input id="yarn-name" name="name" placeholder="yarn / brand / colour" required maxlength="200"><label class="sr-only" for="yarn-url">Yarn link</label><input id="yarn-url" name="url" type="url" placeholder="https://…" required><button class="text-button" type="submit">＋ save a yarn idea</button></form></div></div></div>`;
+    $('#project-detail').innerHTML=`<div class="detail-layout"><div class="detail-photo">${photo(p,true)}<span class="photo-credit">${p.image?(p.photoType==='mine'?`my ${p.status==='finished'?'finished piece':'progress photo'}${p.photoCredit?` · ${esc(p.photoCredit)}`:''}`:`photo © ${esc(p.photoCredit||p.designer||'pattern creator')} · pattern reference`):'add your own photo in edit project'}</span></div><div class="detail-content"><p class="eyebrow">${esc(statuses[p.status])} / ${esc(p.availability.toLowerCase())} / ${esc(p.craft.toLowerCase())}${p.status==='finished'&&p.finishedAt?` / ${esc(finishDate(p))}`:''}</p><h2 id="dialog-title">${esc(p.name)}</h2><p class="designer">${esc(p.designer||'my own idea')}</p><p>${esc(p.notes)}</p><div class="tag-list">${p.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div><div class="detail-links">${p.url?`<a class="primary-button" href="${esc(p.url)}" target="_blank" rel="noopener" style="text-decoration:none">view pattern ↗</a>`:''}<button class="text-button" data-action="edit" data-id="${esc(p.id)}">edit project</button>${p.status!=='finished'?`<button class="text-button" data-action="${p.status==='making'?'requeue':'start'}" data-id="${esc(p.id)}">${p.status==='making'?'back to queue ↺':'start this project →'}</button>`:''}<button class="text-button finish-button" data-action="${p.status==='finished'?'requeue':'finish'}" data-id="${esc(p.id)}">${p.status==='finished'?'move back to queue ↺':'mark finished ✓'}</button>${p.status!=='making'&&p.status!=='finished'?`<button class="text-button" data-action="toggle-queue" data-id="${esc(p.id)}">${p.queued?'remove from queue':'＋ add to queue'}</button>`:''}</div>${p.status==='making'?guideEditor(p)+`<details class="extra-tracker"><summary>my overall counter & checklist</summary>${progressEditor(p)}</details>`:guideArchive(p)}<div class="detail-section"><h3>my notes</h3><form class="project-notes-form" data-project="${esc(p.id)}"><label class="sr-only" for="project-notes">Notes for ${esc(p.name)}</label><textarea id="project-notes" name="personalNotes" rows="5" maxlength="8000" placeholder="colours, outfit ideas, fit notes, changes for next time…">${esc(p.personalNotes)}</textarea><button class="text-button" type="submit">save notes ↗</button></form></div>${fields.length?`<div class="detail-section"><dl class="details-grid">${fields.map(f=>`<div><dt>${esc(f.toLowerCase())}</dt><dd>${esc(p.fields[f])}</dd></div>`).join('')}</dl></div>`:''}<div class="detail-section"><h3>yarn possibilities</h3>${p.ownedYarn?`<p><strong>My yarn:</strong> ${esc(p.ownedYarn)}</p>`:''}${all.length?`<ul class="yarn-list">${all.map((y,i)=>`<li><a href="${esc(y.url)}" target="_blank" rel="noopener">${esc(y.name)} ↗</a>${i>=p.yarns.length?`<button class="remove-yarn" data-action="remove-yarn" data-id="${esc(p.id)}" data-index="${i-p.yarns.length}" aria-label="Remove ${esc(y.name)}">×</button>`:''}<small>${esc(y.kind)}</small></li>`).join('')}</ul>`:'<p class="fine-print">No yarn chosen yet. Add a possibility below.</p>'}<p class="fine-print">Follow the full pattern for yarns held together, washed gauge, fabric and quantities. Candidates are ideas to swatch, not confirmed substitutes.</p><form class="yarn-form" data-project="${esc(p.id)}"><label class="sr-only" for="yarn-name">Yarn name</label><input id="yarn-name" name="name" placeholder="yarn / brand / colour" required maxlength="200"><label class="sr-only" for="yarn-url">Yarn link</label><input id="yarn-url" name="url" type="url" placeholder="https://…" required><button class="text-button" type="submit">＋ save a yarn idea</button></form></div></div></div>`;
     installPhotoFallbacks($('#project-detail'));
     const d=$('#project-dialog');if(!d.open)d.showModal();applyAccess();
   }
@@ -500,7 +613,7 @@ window.KNIT_SEED = {"version":1,"projects":[{"name":"mohair boatneck top","url":
   $('#sync-choice').addEventListener('click',event=>{if(event.target===$('#sync-choice'))event.stopImmediatePropagation();},true);
   let draftTimer;
   document.addEventListener('input',event=>{
-    if(!event.target.matches('.project-notes-form textarea,.tracker-form input,.tracker-form select'))return;
+    if(!event.target.matches('.project-notes-form textarea,.tracker-form input,.tracker-form select,.guide-note-form textarea'))return;
     clearTimeout(draftTimer);draftTimer=setTimeout(()=>{
       if(!$('#project-dialog').open||conflictRow)return;
       const form=$('.project-notes-form'),p=form&&find(form.dataset.project);if(!p)return;captureDrafts(p);save();
@@ -508,7 +621,7 @@ window.KNIT_SEED = {"version":1,"projects":[{"name":"mohair boatneck top","url":
   });
   $('#project-dialog').addEventListener('close',()=>{
     const form=$('.project-notes-form'),p=form&&find(form.dataset.project);if(!p||conflictRow)return;
-    const before=JSON.stringify(p);p.personalNotes=form.elements.personalNotes.value.slice(0,8000);const tracker=$('.tracker-form');if(tracker?.dataset.project===p.id)readTrackerForm(p,tracker);
+    const before=JSON.stringify(p);readGuideNote(p);p.personalNotes=form.elements.personalNotes.value.slice(0,8000);const tracker=$('.tracker-form');if(tracker?.dataset.project===p.id)readTrackerForm(p,tracker);
     if(before!==JSON.stringify(p)){save();render();}
     else if(!syncReady&&!dirty)refreshCloud();
   });
@@ -516,6 +629,114 @@ window.KNIT_SEED = {"version":1,"projects":[{"name":"mohair boatneck top","url":
   window.addEventListener('focus',refreshCloud);
   window.addEventListener('beforeunload',event=>{if(dirty){event.preventDefault();event.returnValue='';}});
   function startCloud(){connectCloud();}
+
+  let ravelryPreview=[],ravelryPasteHTML='';
+  function ravelryURL(value){
+    try{const url=new URL(String(value),'https://www.ravelry.com');if(!['http:','https:'].includes(url.protocol)||!['www.ravelry.com','ravelry.com'].includes(url.hostname))return '';const match=decodeURIComponent(url.pathname).match(/^\/patterns\/library\/([a-z0-9-]+)\/?$/i);return match?'https://www.ravelry.com/patterns/library/'+match[1].toLowerCase():'';}catch{return '';}
+  }
+  function ravelryCandidates(text,html=''){
+    if(text.length+html.length>10000000)throw Error('Choose queue content under 10 MB. You can import pages separately.');
+    let entries=[];
+    const cleanName=(name,url)=>short(name,150).replace(/\s+/g,' ').trim()||url.split('/').pop().replace(/-/g,' ');
+    const add=raw=>{
+      if(!raw||typeof raw!=='object')return;
+      const url=ravelryURL(raw.url||raw.pattern_url||raw.link);if(!url)return;
+      entries.push({url,name:cleanName(raw.name||raw.title,url),designer:short(raw.designer,120),image:validURL(raw.image),photoCredit:short(raw.photoCredit||raw.designer,150),availability:['Free','Paid','Discontinued'].includes(raw.availability)?raw.availability:'Check listing'});
+    };
+    if(!html&&/^\s*[\[{]/.test(text)){
+      let data;try{data=JSON.parse(text);}catch{throw Error('This JSON could not be read. Try copying the queue again.');}
+      const list=Array.isArray(data)?data:data.patterns||data.projects;if(!Array.isArray(list))throw Error('Choose a queue JSON file containing pattern links.');list.slice(0,1000).forEach(add);
+    }else{
+      const markup=html||(/<a\b|<html\b|<body\b/i.test(text)?text:'');
+      if(markup){
+        // A template stays inert: imported scripts, images and event handlers never run.
+        const template=document.createElement('template');template.innerHTML=markup;
+        const root=template.content.querySelector('#queued_projects')||template.content;
+        root.querySelectorAll('a[href]').forEach(a=>{
+          const url=ravelryURL(a.getAttribute('href'));if(!url)return;
+          const box=a.closest('[id^="queued_project_"],.queued_project,.queue_project,.queue_item,.queue-item,li,tr,article')||a.parentElement?.parentElement;
+          const image=box?.querySelector('img');let imageURL=image?.getAttribute('data-src')||image?.getAttribute('src')||'';
+          if(imageURL.startsWith('//'))imageURL='https:'+imageURL;
+          const designer=box?.querySelector('a[href*="/designers/"]')?.textContent?.trim()||'';
+          let name=a.textContent.trim()||[...(box?.querySelectorAll('a[href]')||[])].find(other=>ravelryURL(other.getAttribute('href'))===url&&other.textContent.trim())?.textContent.trim()||a.querySelector('img')?.getAttribute('alt')||'';
+          if(!name&&box)name=[...box.querySelectorAll('a[href]')].find(other=>ravelryURL(other.getAttribute('href'))===url&&other.textContent.trim())?.textContent.trim()||'';
+          add({url,name,designer,image:imageURL,photoCredit:designer});
+        });
+      }else{
+        const lines=text.split(/\r?\n/);lines.forEach((line,i)=>{
+          const matches=line.match(/https?:\/\/(?:www\.)?ravelry\.com\/patterns\/library\/[a-z0-9-]+\/?(?:\?[^\s<>"']*)?/ig)||[];
+          matches.forEach(link=>{const prefix=line.slice(0,line.indexOf(link)).replace(/[\[\]()→↗:]+$/g,'').trim();const previous=(lines[i-1]||'').trim();add({url:link,name:prefix||(!/^https?:|^by\s/i.test(previous)&&previous.length<151?previous:'')});});
+        });
+      }
+    }
+    if(html&&!entries.length&&/https?:\/\/(?:www\.)?ravelry\.com\/patterns\/library\//i.test(text))return ravelryCandidates(text);
+    const unique=new Map();entries.forEach(p=>{const old=unique.get(p.url);if(!old)unique.set(p.url,p);else{if(!old.image&&p.image)old.image=p.image;if(!old.designer&&p.designer){old.designer=p.designer;old.photoCredit=p.photoCredit;}const fallback=p.url.split('/').pop().replace(/-/g,' ');if(old.name===fallback&&p.name!==fallback)old.name=p.name;}});
+    return [...unique.values()];
+  }
+  function previewRavelry(entries){
+    const unique=new Map();entries.forEach(p=>{if(!unique.has(p.url))unique.set(p.url,p);});
+    const existing=new Set(state.projects.map(p=>ravelryURL(p.url)).filter(Boolean));
+    ravelryPreview=[...unique.values()].filter(p=>!existing.has(p.url));
+    if(!unique.size)throw Error('No pattern links found. Copy your visible queue while signed in to Ravelry, or paste pattern URLs. If you saved HTML, choose the queue page rather than the sign-in page.');
+    if(ravelryPreview.length>500-state.projects.length)throw Error(`This board has room for ${500-state.projects.length} more projects. Import a smaller batch.`);
+    const known=unique.size-ravelryPreview.length;
+    $('#ravelry-result-note').textContent=`${ravelryPreview.length} new pattern${ravelryPreview.length===1?'':'s'} · ${known} already on your board. Existing projects keep their notes, instructions, status and order.`;
+    $('#ravelry-preview').innerHTML=ravelryPreview.map((p,i)=>`<li><label><input type="checkbox" data-ravelry-index="${i}" checked><span><strong>${esc(p.name)}</strong><small>${esc(p.designer||'designer details can be added later')}</small></span></label><a href="${esc(p.url)}" target="_blank" rel="noopener" aria-label="Open ${esc(p.name)} on Ravelry">↗</a></li>`).join('');
+    $('#ravelry-results').hidden=false;$('#ravelry-error').textContent='';updateRavelryButton();
+  }
+  function updateRavelryButton(){const count=$$('[data-ravelry-index]:checked').length;$('#ravelry-apply').disabled=count===0;$('#ravelry-apply').textContent=count?`add ${count} new pattern${count===1?'':'s'} ↗`:'nothing new to add';}
+  function resetRavelryPreview(){ravelryPreview=[];$('#ravelry-results').hidden=true;$('#ravelry-preview').innerHTML='';$('#ravelry-error').textContent='';$('#ravelry-apply').disabled=true;}
+  $('#ravelry-import').addEventListener('click',()=>{resetRavelryPreview();$('#ravelry-dialog').showModal();});
+  $('#ravelry-paste').addEventListener('input',()=>{ravelryPasteHTML='';resetRavelryPreview();});
+  $('#ravelry-paste').addEventListener('paste',event=>{
+    const html=event.clipboardData?.getData('text/html'),text=event.clipboardData?.getData('text/plain')||'';if(!html)return;
+    event.preventDefault();$('#ravelry-paste').value=text;ravelryPasteHTML=html;resetRavelryPreview();try{previewRavelry(ravelryCandidates(text,html));}catch(error){$('#ravelry-error').textContent=error.message;}
+  });
+  $('#ravelry-parse').addEventListener('click',()=>{try{previewRavelry(ravelryCandidates($('#ravelry-paste').value,ravelryPasteHTML));}catch(error){resetRavelryPreview();$('#ravelry-error').textContent=error.message;}});
+  $('#ravelry-files').addEventListener('change',async event=>{
+    resetRavelryPreview();const files=[...event.target.files];if(!files.length)return;
+    try{if(files.length>30||files.reduce((n,f)=>n+f.size,0)>10000000)throw Error('Choose up to 30 queue files totaling less than 10 MB.');let entries=[];for(const file of files)entries.push(...ravelryCandidates(await file.text()));previewRavelry(entries);}catch(error){$('#ravelry-error').textContent=error.message;}finally{event.target.value='';}
+  });
+  $('#ravelry-preview').addEventListener('change',updateRavelryButton);
+  $('#ravelry-apply').addEventListener('click',()=>{
+    if(conflictRow){$('#ravelry-error').textContent='Resolve the saved-board version choice before importing.';return;}
+    const existing=new Set(state.projects.map(p=>ravelryURL(p.url)).filter(Boolean)),queued=$('#ravelry-destination').value==='queue';let added=0;
+    $$('[data-ravelry-index]:checked').forEach(input=>{
+      const entry=ravelryPreview[Number(input.dataset.ravelryIndex)];if(!entry||existing.has(entry.url)||state.projects.length>=500)return;
+      let hash=2166136261;for(const c of entry.url)hash=Math.imul(hash^c.charCodeAt(0),16777619);const slug=entry.url.split('/').pop(),base='rav-'+slug.slice(0,65)+'-'+(hash>>>0).toString(36);let id=base,suffix=0;while(find(id))id=base+'-'+(++suffix);
+      const raw={...entry,id,status:'someday',queued,category:'to explore',tags:['from Ravelry'],small:false,craft:'Knitting',notes:'Imported from my Ravelry queue. Check the pattern for construction, yarn and gauge.',personalNotes:'',ownedYarn:'',fields:{},yarns:[],customYarns:[],queueNumber:null};
+      state.projects.push(validate({version:1,projects:[raw],order:[id]}).projects[0]);state.order.push(id);existing.add(entry.url);added++;
+    });
+    if(!added){$('#ravelry-error').textContent='These patterns are already on your board.';return;}
+    save();updateStyleOptions();query='';style='';freeOnly=false;$('#search').value='';$('#style-filter').value='';setView(queued?'queue':'wishlist');$('#ravelry-dialog').close();toast(`Added ${added} new pattern${added===1?'':'s'}. Your existing projects are unchanged.`);
+  });
+  // A bookmark copies pattern references while the user is on their own Ravelry queue.
+  function copyRavelryQueue(){
+    (async()=>{
+      if(!/^(www\.)?ravelry\.com$/.test(location.hostname)||!/^\/people\/sgogte\/queue\/?$/.test(location.pathname)){alert('Open sgogte’s queue on Ravelry first, then click this bookmark.');return;}
+      const patterns=new Map(),visited=new Set();let doc=document,url=location.href;
+      if(Number(new URL(url).searchParams.get('page')||1)>1){const first=new URL(url);first.searchParams.set('page','1');const response=await fetch(first.href,{credentials:'same-origin'});if(!response.ok)throw Error('Could not open the first queue page.');doc=new DOMParser().parseFromString(await response.text(),'text/html');url=first.href;}
+      for(let page=0;page<30;page++){
+        if(visited.has(url))break;visited.add(url);
+        const root=doc.querySelector('#queued_projects');if(!root)throw Error('The queue could not be read. Sign in to Ravelry and open the queue in thumbnail/list view.');
+        root.querySelectorAll('a[href]').forEach(a=>{
+          const u=new URL(a.getAttribute('href'),location.origin),match=u.pathname.match(/^\/patterns\/library\/([a-z0-9-]+)\/?$/i);if(!['www.ravelry.com','ravelry.com'].includes(u.hostname)||!match)return;
+          const link='https://www.ravelry.com/patterns/library/'+match[1].toLowerCase(),box=a.closest('[id^="queued_project_"],.queued_project,.queue_project,.queue_item,.queue-item,li,tr,article')||a.parentElement?.parentElement,img=box?.querySelector('img'),name=a.textContent.trim()||a.querySelector('img')?.getAttribute('alt')||'',designer=box?.querySelector('a[href*="/designers/"]')?.textContent.trim()||'';
+          const old=patterns.get(link);if(!old||!old.name&&name)patterns.set(link,{url:link,name,designer,image:img?.getAttribute('data-src')||img?.src||'',photoCredit:designer});
+        });
+        const next=doc.querySelector('a[rel="next"],a.next_page,.pagination a.next,.pagination .next_page a,.paginator a.next,.paginator .next_page a')||[...doc.querySelectorAll('a[href]')].find(a=>/^next\b|^older\b|^›|^»/i.test(a.textContent.trim()));
+        if(!next)break;const nextURL=new URL(next.getAttribute('href'),location.origin);if(nextURL.origin!==location.origin||nextURL.pathname!==location.pathname||visited.has(nextURL.href))break;
+        if(page===29)throw Error('The queue has more than 30 pages. Import smaller batches by copying each page.');
+        url=nextURL.href;const response=await fetch(url,{credentials:'same-origin'});if(!response.ok)throw Error('Could not read the next queue page. Try copying the current page instead.');doc=new DOMParser().parseFromString(await response.text(),'text/html');
+      }
+      if(!patterns.size)throw Error('No patterns found. Sign in to Ravelry and open your queue, then try again.');
+      const json=JSON.stringify({source:'Ravelry queue',username:'sgogte',patterns:[...patterns.values()]});
+      try{await navigator.clipboard.writeText(json);alert(`Copied ${patterns.size} patterns. Return to your knitting board, open “import from Ravelry”, and paste.`);}
+      catch{const a=document.createElement('a'),blob=new Blob([json],{type:'application/json'}),url=URL.createObjectURL(blob);a.href=url;a.download='ravelry-queue.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);alert('Saved ravelry-queue.json. Choose that file in your knitting board’s Ravelry import.');}
+    })().catch(error=>alert(error.message));
+  }
+  $('#ravelry-bookmark').href='javascript:('+encodeURIComponent(copyRavelryQueue.toString())+')()';
+  $('#ravelry-bookmark').addEventListener('click',event=>{event.preventDefault();$('#ravelry-bookmark-note').textContent='Drag this link to your bookmarks bar first. Open your Ravelry queue, then click the saved bookmark there.';});
 
   const nav=document.querySelector('#nav');
   const updateNav=()=>nav?.classList.toggle('scrolled',window.scrollY>10);
