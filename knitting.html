@@ -98,6 +98,7 @@ footer{max-width:none;padding:27px 2.5rem 36px}
 #ravelry-dialog .fine-print{font-size:10px;line-height:1.8;color:var(--muted)}
 #ravelry-dialog{padding:36px;max-width:650px;width:calc(100% - 32px)}#ravelry-dialog h2{font:300 32px/1.2 'Zodiak',Georgia,serif;margin:14px 0 20px}.ravelry-intro,.ravelry-howto{font-size:12px;line-height:1.9;color:var(--muted)}.ravelry-howto{padding-left:18px;margin:20px 0}.ravelry-howto li{margin:8px 0}.ravelry-howto a,.ravelry-bookmark-help a{color:var(--blue-ink);text-decoration:underline;text-underline-offset:3px}.ravelry-label{display:grid;gap:8px;margin:18px 0;font:300 10px/1.6 'Geist Mono',monospace;color:var(--muted)}#ravelry-paste,#ravelry-destination{width:100%;min-width:0;padding:11px;border:1px solid var(--line);border-radius:3px;background:#fff7;color:var(--fg);font:300 13px/1.7 'Geist',sans-serif}#ravelry-paste{resize:vertical}.ravelry-import-actions{display:flex;gap:18px;align-items:center;flex-wrap:wrap}.ravelry-file-label{display:grid;gap:8px}.ravelry-file-label input{font:300 10px 'Geist Mono',monospace;max-width:220px}.ravelry-bookmark-help{border-block:1px solid var(--line);padding:10px 0;margin-top:20px}.ravelry-bookmark-help summary{cursor:pointer;font:300 10px/1.7 'Geist Mono',monospace}.ravelry-bookmark-help p{font-size:12px;line-height:1.8;margin:12px 0}#ravelry-preview{list-style:none;padding:0;max-height:300px;overflow:auto;border-block:1px solid var(--line);margin:14px 0}#ravelry-preview li{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}#ravelry-preview label{display:flex;align-items:flex-start;gap:12px;flex:1;min-width:0;font-size:13px;line-height:1.7}#ravelry-preview input{accent-color:#426b7a;margin-top:6px;flex-shrink:0}#ravelry-preview span{min-width:0;overflow-wrap:anywhere}#ravelry-preview strong{font-weight:400}#ravelry-preview small{display:block;font:300 9px/1.7 'Geist Mono',monospace;color:var(--muted)}#ravelry-preview a{padding:6px}#ravelry-apply:disabled{opacity:.4;cursor:default}.footer-actions{flex-wrap:wrap}
 @media(max-width:760px){#ravelry-dialog{padding:30px 22px}#ravelry-dialog h2{font-size:27px}.ravelry-import-actions{gap:14px}.ravelry-import-actions .primary-button{width:100%}}
+.ravelry-preview-photo{width:44px;height:52px;object-fit:cover;border-radius:2px;flex-shrink:0}#ravelry-preview label{align-items:center}
 </style>
 </head>
 <body>
@@ -146,7 +147,7 @@ footer{max-width:none;padding:27px 2.5rem 36px}
   </form></dialog>
 
   <dialog id="sync-choice" aria-labelledby="sync-choice-title"><p class="eyebrow">your saved projects</p><h2 id="sync-choice-title">choose where to pick up.</h2><p id="sync-choice-note"></p><div class="sync-choices"><button id="keep-browser" class="primary-button">use this browser’s version ↗</button><button id="use-cloud" class="text-button">use the online version ↗</button></div><p class="fine-print">Your browser copy stays here until you choose. Export is also available as a backup.</p></dialog>
-  <dialog id="ravelry-dialog" aria-labelledby="ravelry-title"><button class="dialog-close" data-close aria-label="Close Ravelry import">×</button><p class="eyebrow">new things to make</p><h2 id="ravelry-title">a few more possibilities.</h2><p class="ravelry-intro">Bring new patterns over from your Ravelry queue. Your existing projects keep their notes, progress, instructions and order.</p><ol class="ravelry-howto"><li><a href="https://www.ravelry.com/people/sgogte/queue?page=1&amp;view=thumblist" target="_blank" rel="noopener">Open my Ravelry queue ↗</a> and sign in there if needed.</li><li>Select the queue page’s contents (⌘A / Ctrl+A), then copy (⌘C / Ctrl+C).</li><li>Return here and paste below. You can repeat this for other queue pages.</li></ol><label class="ravelry-label" for="ravelry-paste">Paste queue content or pattern links<textarea id="ravelry-paste" rows="4" placeholder="Paste here, then preview new patterns…"></textarea></label><div class="ravelry-import-actions"><button id="ravelry-parse" class="primary-button">preview new patterns ↗</button><label class="text-button ravelry-file-label">or choose queue files<input id="ravelry-files" type="file" accept=".html,.htm,.json,.txt,text/html,application/json,text/plain" multiple></label></div><p class="fine-print">Files can be saved queue HTML or queue JSON. Pattern details and photos are included when present in what you copy; yarn links can be added later.</p><details class="ravelry-bookmark-help"><summary>copy multiple queue pages with a bookmark</summary><p>Drag <a id="ravelry-bookmark" href="#">copy my Ravelry queue</a> to your bookmarks bar. Open your signed-in Ravelry queue and click that bookmark. Then paste the copied list here, or choose the downloaded JSON file.</p><p id="ravelry-bookmark-note" class="fine-print">It reads your queue in your Ravelry tab. Your password and cookies stay there.</p></details><p id="ravelry-error" class="form-error" role="alert"></p><div id="ravelry-results" hidden><p id="ravelry-result-note" class="fine-print" role="status"></p><ul id="ravelry-preview"></ul><label class="ravelry-label">Add new patterns to<select id="ravelry-destination"><option value="wishlist">my wishlist</option><option value="queue">my queue</option></select></label><button id="ravelry-apply" class="primary-button" disabled>add new patterns ↗</button></div></dialog>
+  <dialog id="ravelry-dialog" aria-labelledby="ravelry-title"><button class="dialog-close" data-close aria-label="Close Ravelry import">×</button><p class="eyebrow">new things to make</p><h2 id="ravelry-title">a few more possibilities.</h2><p class="ravelry-intro">Bring new patterns over from your Ravelry queue. Your existing projects keep their notes, progress, instructions and order. You can also fill in missing photos and designers.</p><ol class="ravelry-howto"><li><a href="https://www.ravelry.com/people/sgogte/queue?page=1&amp;view=thumblist" target="_blank" rel="noopener">Open my Ravelry queue ↗</a> and sign in there if needed.</li><li>Select the queue page’s contents (⌘A / Ctrl+A), then copy (⌘C / Ctrl+C).</li><li>Return here and paste below. You can repeat this for other queue pages.</li></ol><label class="ravelry-label" for="ravelry-paste">Paste queue content or pattern links<textarea id="ravelry-paste" rows="4" placeholder="Paste here, then preview new patterns…"></textarea></label><div class="ravelry-import-actions"><button id="ravelry-parse" class="primary-button">preview new patterns ↗</button><label class="text-button ravelry-file-label">or choose queue files<input id="ravelry-files" type="file" accept=".html,.htm,.json,.txt,text/html,application/json,text/plain" multiple></label></div><p class="fine-print">For photos and designer names, use the copying bookmark below. Plain copied links may contain only pattern names and URLs.</p><details class="ravelry-bookmark-help"><summary>copy queue with photos & designer names</summary><p>Drag <a id="ravelry-bookmark" href="#">copy my Ravelry queue + details</a> to your bookmarks bar. Open your signed-in Ravelry queue and click that bookmark. Wait for it to collect photos and designers, then paste the list here or choose the downloaded JSON file. You can re-import to fill gaps in existing projects.</p><p id="ravelry-bookmark-note" class="fine-print">It reads your queue and the linked pattern pages in your Ravelry tab. Your password and cookies stay there. If you saved the older bookmark, replace it with this one.</p></details><p id="ravelry-error" class="form-error" role="alert"></p><div id="ravelry-results" hidden><p id="ravelry-result-note" class="fine-print" role="status"></p><ul id="ravelry-preview"></ul><label class="ravelry-label">Add new patterns to<select id="ravelry-destination"><option value="wishlist">my wishlist</option><option value="queue">my queue</option></select></label><button id="ravelry-apply" class="primary-button" disabled>add new patterns ↗</button></div></dialog>
   <dialog id="about-dialog" aria-labelledby="about-title"><button class="dialog-close" data-close aria-label="Close about">×</button><p class="eyebrow">a note on the list</p><h2 id="about-title">a wardrobe in progress.</h2><p>This board starts with your 81 Ravelry queue entries, Mexico and Miami, four small-project ideas, the handwarmers you’re making, and your first finished sweater.</p><p>The making order is a starting point. Move things around, add a new idea, or leave something for someday. Small doesn’t always mean quick; the project notes explain when a technique or fine gauge adds time.</p><p>Photos belong to their credited creators and load from the linked listings. They are pattern references, not photos of your finished work. You can replace them with your own photos.</p><p>Yarn links are either listed in the pattern or explicitly marked as candidates. Check the full pattern for strand combinations, washed gauge, fabric and the amount for your size before buying.</p><p>Changes, notes, progress and photos save online and load automatically on any browser or device. No sign-in is needed. Anyone with this page link can view or change the shared board. A browser copy helps recover unsynced changes. Export is an optional backup.</p><a class="text-button" href="index.html">back to my website ↗</a></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <!-- Project data and behaviour are kept in this page, like the rest of the site. -->
@@ -630,7 +631,54 @@ window.KNIT_SEED = {"version":1,"projects":[{"name":"mohair boatneck top","url":
   window.addEventListener('beforeunload',event=>{if(dirty){event.preventDefault();event.returnValue='';}});
   function startCloud(){connectCloud();}
 
-  let ravelryPreview=[],ravelryPasteHTML='';
+  // Standalone helpers also run inside the copying bookmark on Ravelry.
+  function readRavelryPattern(doc,patternURL){
+    const text=value=>String(value||'').replace(/\s+/g,' ').trim();
+    const imageURL=value=>{try{const u=new URL(typeof value==='string'?value:'','https://www.ravelry.com');return /^https?:$/.test(u.protocol)&&!u.pathname.match(/(?:\/logos\/|\/assets\/icons\/|ravelry-logo)/i)?u.href:'';}catch{return '';}};
+    const meta=(...names)=>{for(const name of names){const value=doc.querySelector(`meta[property="${name}"],meta[name="${name}"]`)?.getAttribute('content');if(value)return text(value);}return '';};
+    const title=meta('og:title','twitter:title')||text(doc.querySelector('title')?.textContent).replace(/^Ravelry:\s*/i,'');
+    const match=title.match(/^(.*?)\s+pattern by\s+(.+)$/i);
+    let product=null;
+    const visit=value=>{if(!value||typeof value!=='object')return;if(Array.isArray(value)){value.forEach(visit);return;}if(!product&&[value['@type']].flat().some(t=>['Product','CreativeWork'].includes(t)))product=value;if(value['@graph'])visit(value['@graph']);};
+    doc.querySelectorAll('script[type="application/ld+json"]').forEach(script=>{try{visit(JSON.parse(script.textContent));}catch{}});
+    const author=product?.author||product?.brand;
+    const designer=text(match?.[2]||(typeof author==='string'?author:author?.name)||doc.querySelector('.designer_name a,a[rel="author"]')?.textContent);
+    let image=meta('og:image','twitter:image:src','twitter:image');
+    if(!image){const value=Array.isArray(product?.image)?product.image[0]:product?.image;image=typeof value==='string'?value:value?.url||value?.contentUrl||'';}
+    let name=text(match?.[1]||product?.name||doc.querySelector('h1')?.textContent||'');
+    if(!name||/sign in|log in|ravelry is a/i.test(name))name='';
+    return {url:patternURL,name,designer,image:image?imageURL(image):'',photoCredit:designer};
+  }
+  function readRavelryQueue(doc){
+    const canonical=value=>{try{const u=new URL(value,'https://www.ravelry.com'),m=u.pathname.match(/^\/patterns\/library\/([a-z0-9-]+)\/?$/i);return ['www.ravelry.com','ravelry.com'].includes(u.hostname)&&/^https?:$/.test(u.protocol)&&m?'https://www.ravelry.com/patterns/library/'+m[1].toLowerCase():'';}catch{return '';}};
+    const text=value=>String(value||'').replace(/\s+/g,' ').trim();
+    const root=doc.querySelector('#queued_projects')||doc,results=new Map();
+    root.querySelectorAll('a[href]').forEach(a=>{
+      const url=canonical(a.getAttribute('href'));if(!url)return;
+      let box=a.parentElement||a;
+      for(let n=0,parent=box;n<9&&parent&&parent!==root;parent=parent.parentElement,n++){
+        const links=[...parent.querySelectorAll('a[href]')].map(l=>canonical(l.getAttribute('href'))).filter(Boolean);
+        if(new Set(links).size>1)break;box=parent;
+        if(parent.matches('[id^="queued_project_"],[id^="queue_item_"],.queued_project,.queue_project,.queue_item,.queue-item,article,tr'))break;
+      }
+      if(!box)return;
+      const titleLink=[...box.querySelectorAll('a[href]')].find(l=>canonical(l.getAttribute('href'))===url&&text(l.textContent));
+      const imageLink=[...box.querySelectorAll('a[href]')].find(l=>canonical(l.getAttribute('href'))===url&&l.querySelector('img'));
+      const img=imageLink?.querySelector('img')||box.querySelector('img');
+      let image=img?.getAttribute('data-src')||img?.getAttribute('data-original')||img?.getAttribute('data-lazy-src')||img?.getAttribute('srcset')?.split(',').pop()?.trim().split(/\s+/)[0]||img?.getAttribute('src')||'';
+      if(!image){const style=box.querySelector('[style*="background-image"]')?.getAttribute('style');image=style?.match(/background-image\s*:\s*url\(['"]?([^'")]+)['"]?\)/i)?.[1]||'';}
+      try{image=image?new URL(image,'https://www.ravelry.com').href:'';}catch{image='';}
+      if(!/^https?:\/\//i.test(image)||/\/assets\/icons\/|\/avatars\/|\/logos\//i.test(image))image='';
+      let designer=text(box.querySelector('a[href*="/designers/"],.designer_name,.pattern_author,.designer,.byline')?.textContent).replace(/^by\s+/i,'');
+      if(!designer){const author=[...box.querySelectorAll('a[href*="/people/"]')].find(l=>/\bby\s*$/i.test(l.previousSibling?.textContent||''));designer=text(author?.textContent);}
+      if(!designer){const lines=box.textContent.split(/\n/).map(text);designer=lines.find(line=>/^by\s+\S/i.test(line))?.replace(/^by\s+/i,'')||'';}
+      const entry={url,name:text(titleLink?.textContent)||text(a.textContent)||text(img?.getAttribute('alt')),designer,image,photoCredit:designer},old=results.get(url);
+      if(!old)results.set(url,entry);else for(const key of ['name','designer','image','photoCredit'])if(!old[key]&&entry[key])old[key]=entry[key];
+    });
+    return [...results.values()];
+  }
+
+  let ravelryPreview=[],ravelryRepairs=[],ravelryPasteHTML='';
   function ravelryURL(value){
     try{const url=new URL(String(value),'https://www.ravelry.com');if(!['http:','https:'].includes(url.protocol)||!['www.ravelry.com','ravelry.com'].includes(url.hostname))return '';const match=decodeURIComponent(url.pathname).match(/^\/patterns\/library\/([a-z0-9-]+)\/?$/i);return match?'https://www.ravelry.com/patterns/library/'+match[1].toLowerCase():'';}catch{return '';}
   }
@@ -651,17 +699,7 @@ window.KNIT_SEED = {"version":1,"projects":[{"name":"mohair boatneck top","url":
       if(markup){
         // A template stays inert: imported scripts, images and event handlers never run.
         const template=document.createElement('template');template.innerHTML=markup;
-        const root=template.content.querySelector('#queued_projects')||template.content;
-        root.querySelectorAll('a[href]').forEach(a=>{
-          const url=ravelryURL(a.getAttribute('href'));if(!url)return;
-          const box=a.closest('[id^="queued_project_"],.queued_project,.queue_project,.queue_item,.queue-item,li,tr,article')||a.parentElement?.parentElement;
-          const image=box?.querySelector('img');let imageURL=image?.getAttribute('data-src')||image?.getAttribute('src')||'';
-          if(imageURL.startsWith('//'))imageURL='https:'+imageURL;
-          const designer=box?.querySelector('a[href*="/designers/"]')?.textContent?.trim()||'';
-          let name=a.textContent.trim()||[...(box?.querySelectorAll('a[href]')||[])].find(other=>ravelryURL(other.getAttribute('href'))===url&&other.textContent.trim())?.textContent.trim()||a.querySelector('img')?.getAttribute('alt')||'';
-          if(!name&&box)name=[...box.querySelectorAll('a[href]')].find(other=>ravelryURL(other.getAttribute('href'))===url&&other.textContent.trim())?.textContent.trim()||'';
-          add({url,name,designer,image:imageURL,photoCredit:designer});
-        });
+        readRavelryQueue(template.content).forEach(add);
       }else{
         const lines=text.split(/\r?\n/);lines.forEach((line,i)=>{
           const matches=line.match(/https?:\/\/(?:www\.)?ravelry\.com\/patterns\/library\/[a-z0-9-]+\/?(?:\?[^\s<>"']*)?/ig)||[];
@@ -675,17 +713,28 @@ window.KNIT_SEED = {"version":1,"projects":[{"name":"mohair boatneck top","url":
   }
   function previewRavelry(entries){
     const unique=new Map();entries.forEach(p=>{if(!unique.has(p.url))unique.set(p.url,p);});
-    const existing=new Set(state.projects.map(p=>ravelryURL(p.url)).filter(Boolean));
-    ravelryPreview=[...unique.values()].filter(p=>!existing.has(p.url));
+    const existing=new Map(state.projects.map(p=>[ravelryURL(p.url),p]).filter(([url])=>url));
+    ravelryPreview=[...unique.values()].filter(p=>!existing.has(p.url));ravelryRepairs=[];
+    for(const entry of unique.values()){
+      const p=existing.get(entry.url);if(!p)continue;
+      const image=!p.image&&p.photoType!=='mine'?entry.image:'',designer=!p.designer?entry.designer:'';
+      if(image||designer)ravelryRepairs.push({id:p.id,url:p.url,name:p.name,image,designer,photoCredit:entry.photoCredit||entry.designer});
+    }
     if(!unique.size)throw Error('No pattern links found. Copy your visible queue while signed in to Ravelry, or paste pattern URLs. If you saved HTML, choose the queue page rather than the sign-in page.');
     if(ravelryPreview.length>500-state.projects.length)throw Error(`This board has room for ${500-state.projects.length} more projects. Import a smaller batch.`);
     const known=unique.size-ravelryPreview.length;
-    $('#ravelry-result-note').textContent=`${ravelryPreview.length} new pattern${ravelryPreview.length===1?'':'s'} · ${known} already on your board. Existing projects keep their notes, instructions, status and order.`;
-    $('#ravelry-preview').innerHTML=ravelryPreview.map((p,i)=>`<li><label><input type="checkbox" data-ravelry-index="${i}" checked><span><strong>${esc(p.name)}</strong><small>${esc(p.designer||'designer details can be added later')}</small></span></label><a href="${esc(p.url)}" target="_blank" rel="noopener" aria-label="Open ${esc(p.name)} on Ravelry">↗</a></li>`).join('');
+    $('#ravelry-result-note').textContent=`${ravelryPreview.length} new pattern${ravelryPreview.length===1?'':'s'} · ${ravelryRepairs.length} with missing details to fill · ${known} already saved. Notes, instructions, status and order stay as they are.`;
+    const thumb=p=>p.image?`<img class="ravelry-preview-photo" src="${esc(p.image)}" alt="" loading="lazy" referrerpolicy="no-referrer">`:'';
+    $('#ravelry-preview').innerHTML=ravelryPreview.map((p,i)=>`<li><label><input type="checkbox" data-ravelry-index="${i}" checked>${thumb(p)}<span><strong>${esc(p.name)}</strong><small>${esc(p.designer||'designer not included — use the copying bookmark below')}</small></span></label><a href="${esc(p.url)}" target="_blank" rel="noopener" aria-label="Open ${esc(p.name)} on Ravelry">↗</a></li>`).join('')+ravelryRepairs.map(p=>`<li><label><input type="checkbox" data-ravelry-repair="${esc(p.id)}" checked>${thumb(p)}<span><strong>${esc(p.name)}</strong><small>fill missing ${[p.image?'photo':'',p.designer?'designer':''].filter(Boolean).join(' & ')}${p.designer?` · ${esc(p.designer)}`:''}</small></span></label><a href="${esc(p.url)}" target="_blank" rel="noopener" aria-label="Open ${esc(p.name)} on Ravelry">↗</a></li>`).join('');
+    $$('#ravelry-preview img').forEach(img=>img.addEventListener('error',()=>img.hidden=true,{once:true}));
     $('#ravelry-results').hidden=false;$('#ravelry-error').textContent='';updateRavelryButton();
   }
-  function updateRavelryButton(){const count=$$('[data-ravelry-index]:checked').length;$('#ravelry-apply').disabled=count===0;$('#ravelry-apply').textContent=count?`add ${count} new pattern${count===1?'':'s'} ↗`:'nothing new to add';}
-  function resetRavelryPreview(){ravelryPreview=[];$('#ravelry-results').hidden=true;$('#ravelry-preview').innerHTML='';$('#ravelry-error').textContent='';$('#ravelry-apply').disabled=true;}
+  function updateRavelryButton(){
+    const count=$$('[data-ravelry-index]:checked').length,repairs=$$('[data-ravelry-repair]:checked').length;
+    $('#ravelry-apply').disabled=count+repairs===0;
+    $('#ravelry-apply').textContent=count||repairs?[count?`add ${count} new pattern${count===1?'':'s'}`:'',repairs?`fill ${repairs} missing details`: ''].filter(Boolean).join(' & ')+' ↗':'nothing new to add';
+  }
+  function resetRavelryPreview(){ravelryPreview=[];ravelryRepairs=[];$('#ravelry-results').hidden=true;$('#ravelry-preview').innerHTML='';$('#ravelry-error').textContent='';$('#ravelry-apply').disabled=true;}
   $('#ravelry-import').addEventListener('click',()=>{resetRavelryPreview();$('#ravelry-dialog').showModal();});
   $('#ravelry-paste').addEventListener('input',()=>{ravelryPasteHTML='';resetRavelryPreview();});
   $('#ravelry-paste').addEventListener('paste',event=>{
@@ -700,42 +749,62 @@ window.KNIT_SEED = {"version":1,"projects":[{"name":"mohair boatneck top","url":
   $('#ravelry-preview').addEventListener('change',updateRavelryButton);
   $('#ravelry-apply').addEventListener('click',()=>{
     if(conflictRow){$('#ravelry-error').textContent='Resolve the saved-board version choice before importing.';return;}
-    const existing=new Set(state.projects.map(p=>ravelryURL(p.url)).filter(Boolean)),queued=$('#ravelry-destination').value==='queue';let added=0;
+    const existing=new Set(state.projects.map(p=>ravelryURL(p.url)).filter(Boolean)),queued=$('#ravelry-destination').value==='queue';let added=0,repaired=0;
     $$('[data-ravelry-index]:checked').forEach(input=>{
       const entry=ravelryPreview[Number(input.dataset.ravelryIndex)];if(!entry||existing.has(entry.url)||state.projects.length>=500)return;
       let hash=2166136261;for(const c of entry.url)hash=Math.imul(hash^c.charCodeAt(0),16777619);const slug=entry.url.split('/').pop(),base='rav-'+slug.slice(0,65)+'-'+(hash>>>0).toString(36);let id=base,suffix=0;while(find(id))id=base+'-'+(++suffix);
       const raw={...entry,id,status:'someday',queued,category:'to explore',tags:['from Ravelry'],small:false,craft:'Knitting',notes:'Imported from my Ravelry queue. Check the pattern for construction, yarn and gauge.',personalNotes:'',ownedYarn:'',fields:{},yarns:[],customYarns:[],queueNumber:null};
       state.projects.push(validate({version:1,projects:[raw],order:[id]}).projects[0]);state.order.push(id);existing.add(entry.url);added++;
     });
-    if(!added){$('#ravelry-error').textContent='These patterns are already on your board.';return;}
-    save();updateStyleOptions();query='';style='';freeOnly=false;$('#search').value='';$('#style-filter').value='';setView(queued?'queue':'wishlist');$('#ravelry-dialog').close();toast(`Added ${added} new pattern${added===1?'':'s'}. Your existing projects are unchanged.`);
+    $$('[data-ravelry-repair]:checked').forEach(input=>{
+      const entry=ravelryRepairs.find(e=>e.id===input.dataset.ravelryRepair),p=entry&&find(entry.id);if(!p)return;let changed=false;
+      if(!p.designer&&entry.designer){p.designer=entry.designer;changed=true;}
+      if(!p.image&&p.photoType!=='mine'&&entry.image){p.image=entry.image;p.photoType='pattern';if(!p.photoCredit)p.photoCredit=entry.photoCredit||entry.designer;changed=true;}
+      if(changed)repaired++;
+    });
+    if(!added&&!repaired){$('#ravelry-error').textContent='These patterns and details are already on your board.';return;}
+    save();updateStyleOptions();
+    if(added){query='';style='';freeOnly=false;$('#search').value='';$('#style-filter').value='';setView(queued?'queue':'wishlist');}else render();
+    $('#ravelry-dialog').close();toast([added?`Added ${added} new pattern${added===1?'':'s'}.`:'',repaired?`Filled missing details for ${repaired} project${repaired===1?'':'s'}.`:''].filter(Boolean).join(' '));
   });
   // A bookmark copies pattern references while the user is on their own Ravelry queue.
   function copyRavelryQueue(){
     (async()=>{
       if(!/^(www\.)?ravelry\.com$/.test(location.hostname)||!/^\/people\/sgogte\/queue\/?$/.test(location.pathname)){alert('Open sgogte’s queue on Ravelry first, then click this bookmark.');return;}
-      const patterns=new Map(),visited=new Set();let doc=document,url=location.href;
-      if(Number(new URL(url).searchParams.get('page')||1)>1){const first=new URL(url);first.searchParams.set('page','1');const response=await fetch(first.href,{credentials:'same-origin'});if(!response.ok)throw Error('Could not open the first queue page.');doc=new DOMParser().parseFromString(await response.text(),'text/html');url=first.href;}
-      for(let page=0;page<30;page++){
-        if(visited.has(url))break;visited.add(url);
-        const root=doc.querySelector('#queued_projects');if(!root)throw Error('The queue could not be read. Sign in to Ravelry and open the queue in thumbnail/list view.');
-        root.querySelectorAll('a[href]').forEach(a=>{
-          const u=new URL(a.getAttribute('href'),location.origin),match=u.pathname.match(/^\/patterns\/library\/([a-z0-9-]+)\/?$/i);if(!['www.ravelry.com','ravelry.com'].includes(u.hostname)||!match)return;
-          const link='https://www.ravelry.com/patterns/library/'+match[1].toLowerCase(),box=a.closest('[id^="queued_project_"],.queued_project,.queue_project,.queue_item,.queue-item,li,tr,article')||a.parentElement?.parentElement,img=box?.querySelector('img'),name=a.textContent.trim()||a.querySelector('img')?.getAttribute('alt')||'',designer=box?.querySelector('a[href*="/designers/"]')?.textContent.trim()||'';
-          const old=patterns.get(link);if(!old||!old.name&&name)patterns.set(link,{url:link,name,designer,image:img?.getAttribute('data-src')||img?.src||'',photoCredit:designer});
-        });
-        const next=doc.querySelector('a[rel="next"],a.next_page,.pagination a.next,.pagination .next_page a,.paginator a.next,.paginator .next_page a')||[...doc.querySelectorAll('a[href]')].find(a=>/^next\b|^older\b|^›|^»/i.test(a.textContent.trim()));
-        if(!next)break;const nextURL=new URL(next.getAttribute('href'),location.origin);if(nextURL.origin!==location.origin||nextURL.pathname!==location.pathname||visited.has(nextURL.href))break;
-        if(page===29)throw Error('The queue has more than 30 pages. Import smaller batches by copying each page.');
-        url=nextURL.href;const response=await fetch(url,{credentials:'same-origin'});if(!response.ok)throw Error('Could not read the next queue page. Try copying the current page instead.');doc=new DOMParser().parseFromString(await response.text(),'text/html');
-      }
-      if(!patterns.size)throw Error('No patterns found. Sign in to Ravelry and open your queue, then try again.');
-      const json=JSON.stringify({source:'Ravelry queue',username:'sgogte',patterns:[...patterns.values()]});
-      try{await navigator.clipboard.writeText(json);alert(`Copied ${patterns.size} patterns. Return to your knitting board, open “import from Ravelry”, and paste.`);}
-      catch{const a=document.createElement('a'),blob=new Blob([json],{type:'application/json'}),url=URL.createObjectURL(blob);a.href=url;a.download='ravelry-queue.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);alert('Saved ravelry-queue.json. Choose that file in your knitting board’s Ravelry import.');}
-    })().catch(error=>alert(error.message));
+      const patterns=new Map(),visited=new Set(),controller=new AbortController();
+      const notice=document.createElement('div');notice.setAttribute('role','status');notice.style.cssText='position:fixed;bottom:20px;right:20px;z-index:2147483647;background:#f7f6f2;color:#191919;padding:20px;border:1px solid #999;border-radius:6px;box-shadow:0 4px 24px #0003;font:14px/1.6 sans-serif;max-width:310px';
+      const label=document.createElement('span'),cancel=document.createElement('button');cancel.textContent='cancel';cancel.style.cssText='display:block;margin-top:12px';cancel.onclick=()=>controller.abort();notice.append(label,cancel);document.body.append(notice);
+      const read=async url=>{const response=await fetch(url,{credentials:'same-origin',signal:controller.signal});if(!response.ok)throw Error('Could not read a Ravelry page. Try again in a moment.');if(new URL(response.url||url).origin!==location.origin)throw Error('Ravelry redirected outside the queue. Sign in there and try again.');return new DOMParser().parseFromString(await response.text(),'text/html');};
+      try{
+        let doc=document,url=location.href;
+        if(Number(new URL(url).searchParams.get('page')||1)>1){const first=new URL(url);first.searchParams.set('page','1');doc=await read(first.href);url=first.href;}
+        for(let page=0;page<30;page++){
+          if(visited.has(url))break;visited.add(url);label.textContent=`Reading queue page ${page+1}…`;
+          if(!doc.querySelector('#queued_projects'))throw Error('The queue could not be read. Sign in to Ravelry and open the queue in thumbnail/list view.');
+          for(const entry of readRavelryQueue(doc)){const old=patterns.get(entry.url);if(!old)patterns.set(entry.url,entry);else for(const key of ['name','designer','image','photoCredit'])if(!old[key]&&entry[key])old[key]=entry[key];}
+          const next=doc.querySelector('a[rel="next"],a.next_page,.pagination a.next,.paginator a.next')||[...doc.querySelectorAll('a[href]')].find(a=>/^next\b|^older\b|^›|^»/i.test(a.textContent.trim()));
+          if(!next)break;const nextURL=new URL(next.getAttribute('href'),location.origin);if(nextURL.origin!==location.origin||nextURL.pathname!==location.pathname||visited.has(nextURL.href))break;
+          if(page===29)throw Error('The queue has more than 30 pages. Copy smaller batches instead.');url=nextURL.href;doc=await read(url);
+        }
+        if(!patterns.size)throw Error('No patterns found. Sign in to Ravelry and open your queue, then try again.');
+        const pending=[...patterns.values()];let index=0,finished=0,failed=0;
+        label.textContent=`Reading photos and designers… 0 / ${pending.length}`;
+        await Promise.all(Array.from({length:Math.min(3,pending.length)},async()=>{
+          while(index<pending.length){
+            const entry=pending[index++];if(controller.signal.aborted)throw new DOMException('Cancelled','AbortError');
+            try{const metadata=readRavelryPattern(await read(new URL(entry.url).pathname),entry.url);for(const key of ['name','designer','image','photoCredit'])if(metadata[key])entry[key]=metadata[key];if(!entry.image||!entry.designer)failed++;}
+            catch(error){if(controller.signal.aborted)throw error;failed++;}
+            finally{finished++;label.textContent=`Reading photos and designers… ${finished} / ${pending.length}`;}
+          }
+        }));
+        if(controller.signal.aborted)throw new DOMException('Cancelled','AbortError');
+        const json=JSON.stringify({source:'Ravelry queue',username:'sgogte',patterns:[...patterns.values()]}),summary=`Copied ${patterns.size} patterns${failed?`; ${failed} could not get complete photo/designer details`:''}. Return to your knitting board, open “import from Ravelry”, and paste. Existing entries can have missing details filled in.`;
+        try{await navigator.clipboard.writeText(json);alert(summary);}
+        catch{const a=document.createElement('a'),blob=new Blob([json],{type:'application/json'}),url=URL.createObjectURL(blob);a.href=url;a.download='ravelry-queue.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);alert('Saved ravelry-queue.json. Choose it in your knitting board’s Ravelry import.');}
+      }finally{notice.remove();}
+    })().catch(error=>alert(error.name==='AbortError'?'Copy cancelled. Your knitting board was not changed.':error.message));
   }
-  $('#ravelry-bookmark').href='javascript:('+encodeURIComponent(copyRavelryQueue.toString())+')()';
+  $('#ravelry-bookmark').href='javascript:'+encodeURIComponent('(function(){const readRavelryPattern='+readRavelryPattern.toString()+';const readRavelryQueue='+readRavelryQueue.toString()+';('+copyRavelryQueue.toString()+')();})()');
   $('#ravelry-bookmark').addEventListener('click',event=>{event.preventDefault();$('#ravelry-bookmark-note').textContent='Drag this link to your bookmarks bar first. Open your Ravelry queue, then click the saved bookmark there.';});
 
   const nav=document.querySelector('#nav');
